@@ -41,20 +41,20 @@ Use django_markdown
 
 1) Custom forms: ::
 
-   from django_markdown.widgets import MarkdownWidget
-   class MyCustomForm(forms.Form):
+    from django_markdown.widgets import MarkdownWidget
+    class MyCustomForm(forms.Form):
         content = forms.CharField( widget=MarkdownWidget() )
 
 2) Custom admins: ::
 
-   from django_markdown.admin import MarkdownModelAdmin
-   adimin.site.register(MyModel, MarkdownModelAdmin)
+    from django_markdown.admin import MarkdownModelAdmin
+    adimin.site.register(MyModel, MarkdownModelAdmin)
 
 3) Flatpages: ::
 
-   # in your project main urls
-   from django_markdown import flatpages
-   ...
+    # in your project main urls
+    from django_markdown import flatpages
+    ...
     # Django admin
     admin.autodiscover()
     flatpages.register()
