@@ -1,0 +1,2 @@
+recursive-include django_markdown *
+exclude *.pyc *.orig
