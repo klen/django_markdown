@@ -12,8 +12,9 @@
 // -------------------------------------------------------------------
 
 // mIu nameSpace to avoid conflict.
-miu = {
-    settings: {
+miu = (function($){
+    
+    var settings = {
         onShiftEnter:       {keepDefault:false, openWith:'\n\n'},
         markupSet: [
             {name:'First Level Heading', key:'1', placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
@@ -39,16 +40,63 @@ miu = {
             {separator:'---------------'},
             {name:'Preview', call:'preview', className:"preview"}
         ]
-    },
+    };
     
-	markdownTitle: function(markItUp, char) {
-		heading = '';
-		n = (jQuery || django.jQuery).trim(markItUp.selection||markItUp.placeHolder).length;
-		// work around bug in python-markdown where header underlines must be at least 3 chars
-		if (n < 3) { n = 3; }
-		for(i = 0; i < n; i++) {
-			heading += char;
-		}
-		return '\n'+heading;
-	}
-}
+    function getCookie(name) {
+        var value = null;
+        
+        if (document.cookie && document.cookie != '') {
+            var cookies = document.cookie.split(';');
+            for (var i = 0; i < cookies.length; i++) {
+                var cookie = $.trim(cookies[i]);
+                // Does this cookie string begin with the name we want?
+                if (cookie.substring(0, name.length + 1) == (name + '=')) {
+                    value = decodeURIComponent(cookie.substring(name.length + 1));
+                    break;
+                }
+            }
+        }
+        
+        return value;
+    }
+    
+    /*
+     * Add "X-CSRFToken" header to every AJAX request within current domain
+     * */
+    $('html').ajaxSend(function(event, xhr, settings) {
+        var isLocal = !settings.url.match(/^https?:\/\/([^\/]+)/i);
+        
+        if(isLocal || RegExp.$1 == document.location.host){
+            xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+        }
+    })
+    
+    
+    return {
+        settings: settings,
+        
+        /*
+         * work around bug in python-markdown where header underlines must be at least 3 chars
+         * */
+    	markdownTitle: function(markItUp, char) {
+    		heading = '';
+    		n = $.trim(markItUp.selection || markItUp.placeHolder).length;
+    		if (n < 3) { n = 3; }
+    		for(i = 0; i < n; i++) {
+    			heading += char;
+    		}
+    		return '\n'+heading;
+    	},
+        
+        /*
+         * Shortcut for initializing editor
+         * */
+        init: function(textareId, extraSettings){
+            $(document).ready(function() {
+                $('#' + textareId).markItUp($.extend(settings, extraSettings));
+            });
+        }
+        
+    }
+    
+})(jQuery || django.jQuery);

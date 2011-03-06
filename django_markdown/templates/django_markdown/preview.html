@@ -7,7 +7,7 @@
 <link rel="stylesheet" type="text/css" href="{% firstof STATIC_URL MEDIA_URL %}django_markdown/preview.css" />
 </head>
 <body>
-{{ request.POST.data|markdown }}
+{{ params.content|markdown }}
 </body>
 </html>
 

@@ -24,14 +24,7 @@ class MarkdownWidget(forms.Textarea):
         editor_settings = getattr(settings, 'MARKDOWN_EDITOR_SETTINGS', {})
         editor_settings['previewParserPath'] = reverse('django_markdown_preview')
         
-        html += ("""
-                <script type="text/javascript">
-                (function($) {
-                    $(document).ready(function() {
-                        $("#%(id)s").markItUp($.extend(miu.settings, %(settings)s));
-                    });
-                })(jQuery || django.jQuery);
-                </script>
-                """ % {'id': attrs['id'], 'settings': simplejson.dumps(editor_settings)})
+        html += '<script type="text/javascript">miu.init(\'%s\', %s)</script>' % (attrs['id'], simplejson.dumps(editor_settings))
+        
         return mark_safe(html)
 
