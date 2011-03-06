@@ -12,7 +12,7 @@ class MarkdownWidget(forms.Textarea):
         )
         css = {
             'screen': (
-                settings.STATIC_URL + 'django_markdown/skins/markitup/style.css',
+                settings.STATIC_URL + 'django_markdown/skins/%s/style.css' % getattr(settings, 'MARKDOWN_SKIN', 'markitup'),
                 settings.STATIC_URL + 'django_markdown/markdown.css',
             )
         }
