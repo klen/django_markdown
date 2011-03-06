@@ -60,3 +60,12 @@ Use django_markdown
     flatpages.register()
     urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
 
+
+Settings
+--------
+
+**MARKDOWN_SKIN** - skin option, default value is ``markitup``
+
+Example: `settings.py` ::
+
+    MARKDOWN_SKIN = 'simple'

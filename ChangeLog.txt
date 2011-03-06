@@ -1,0 +1,6 @@
+CHANGES
+=======
+
+## 2011-03-06 0.0.5
+-------------------
+* Add MARKDOWN_SKIN option (Sergii Iavorskyi)
