@@ -1,7 +1,7 @@
 CHANGES
 =======
 
-## 2011-03-07 0.0.7
+## 2011-03-07 0.0.9
 -------------------
 * MARKDOWN_EDITOR_SETTINGS holds the extra parameters (Sergii Iavorskyi) 
 * Add docs to pypi

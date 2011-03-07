@@ -72,6 +72,14 @@ Example: `settings.py` ::
 **MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to textarea.markItUp() 
 
 
+Changes
+=======
+
+Make sure you`ve read the following document if you are upgrading from previous versions of scss:
+
+http://packages.python.org/django-markdown/changes.html
+
+
 Bug tracker
 ===========
 
@@ -111,7 +119,7 @@ Markitup_:
     
 
 .. _GNU lesser general public license: http://www.gnu.org/copyleft/lesser.html
-.. _pypi: http://packages.python.org/scss/
+.. _pypi: http://packages.python.org/django-markdown/
 .. _github: https://github.com/klen/python-scss
 .. _klen: https://github.com/klen
 .. _yavorskiy: https://github.com/yavorskiy

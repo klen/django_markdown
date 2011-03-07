@@ -8,3 +8,4 @@ sitegen.egg-info
 *.pyc
 *.orig
 *~
+docs/_*
