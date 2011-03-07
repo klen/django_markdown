@@ -1,6 +1,11 @@
 CHANGES
 =======
 
+## 2011-03-07 0.0.6
+-------------------
+* MARKDOWN_EDITOR_SETTINGS holds the extra parameters (Sergii Iavorskyi) 
+* Add docs to pypi
+
 ## 2011-03-06 0.0.5
 -------------------
 * Add MARKDOWN_SKIN option (Sergii Iavorskyi)
