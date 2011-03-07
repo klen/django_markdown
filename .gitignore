@@ -2,6 +2,9 @@ build
 dist
 sitegen.egg-info
 .ropeproject
+.project
+.pydevproject
 .sass-cache
 *.pyc
 *.orig
+*~
