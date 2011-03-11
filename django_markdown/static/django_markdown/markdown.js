@@ -101,6 +101,16 @@ miu = (function($){
          * Editor instance: default mIu settings extended with what you passed to miu.init(..., extraSettings)
          * */
         var editorSettings = $.extend(settings, extraSettings);
+
+        /*
+         * Initialize/re-initialize the editor
+         * */
+        function init(){
+            with($('#' + textareaId)){
+                markItUpRemove();
+                markItUp(editorSettings);
+            }
+        }
         
         /*
          * Dynamicaly adds button to the editor at index position
@@ -128,18 +138,9 @@ miu = (function($){
         function config(newSettings){
             if(newSettings){
                 editorSettings = newSettings;
+                init();
             }
             return editorSettings;
-        }
-        
-        /*
-         * Initialize/re-initialize the editor
-         * */
-        function init(){
-            with($('#' + textareaId)){
-                markItUpRemove();
-                markItUp(editorSettings);
-            }
         }
         
         /* ----- initializing ------ */
