@@ -1,6 +1,10 @@
 CHANGES
 =======
 
+## 2011-03-11 0.1.0
+-------------------
+* Client-side improvements (Sergii Iavorskyi) 
+
 ## 2011-03-07 0.0.9
 -------------------
 * MARKDOWN_EDITOR_SETTINGS holds the extra parameters (Sergii Iavorskyi) 

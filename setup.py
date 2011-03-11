@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-from django_markdown import VERSION, PROJECT, LICENSE
+from django_markdown import version, PROJECT, LICENSE
 
 
 MODULE_NAME = 'django_markdown'
@@ -23,7 +23,7 @@ def read( fname ):
 
 META_DATA = dict(
     name = PROJECT,
-    version = VERSION,
+    version = version,
     description = read('DESCRIPTION'),
     long_description = read('README.rst'),
     license=LICENSE,

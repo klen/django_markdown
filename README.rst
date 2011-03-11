@@ -38,18 +38,18 @@ Setup
 Use django_markdown
 ===================
 
-1) Custom forms: ::
+#) Custom forms: ::
 
     from django_markdown.widgets import MarkdownWidget
     class MyCustomForm(forms.Form):
         content = forms.CharField( widget=MarkdownWidget() )
 
-2) Custom admins: ::
+#) Custom admins: ::
 
     from django_markdown.admin import MarkdownModelAdmin
     adimin.site.register(MyModel, MarkdownModelAdmin)
 
-3) Flatpages: ::
+#) Flatpages: ::
 
     # in your project main urls
     from django_markdown import flatpages
@@ -59,7 +59,7 @@ Use django_markdown
     flatpages.register()
     urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
 
-4) JavaScript API: ::
+#) JavaScript API: ::
 
     // Editors manager ``miu`` methods
 
@@ -86,10 +86,6 @@ Use django_markdown
     
     // Dynamically remove button at ``index`` position
     editor.removeButton(index)
-    
-
-
-
     
 
 Settings
