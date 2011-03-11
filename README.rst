@@ -59,15 +59,47 @@ Use django_markdown
     flatpages.register()
     urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
 
+4) JavaScript API: ::
+
+    // Editors manager ``miu`` methods
+
+    // Initialize editor using default settings extended with ``extraSettings``
+    miu.init(textareaId, extraSettings);
+
+    // Get default mIu settings
+    miu.settings();
+
+    // Set default mIu settings
+    miu.settings(newSettings);
+    
+    // Get all initialized aditors
+    miu.editors();
+    
+    // Get certain editor
+    miu.editors(textareaId);
+    
+    
+    // Editor instance methods
+    
+    // Dynamically add button at ``index`` position 
+    editor.addButton(conf, index)
+    
+    // Dynamically remove button at ``index`` position
+    editor.removeButton(index)
+    
+
+
+
+    
 
 Settings
 ========
 
-**MARKDOWN_SKIN** - skin option, default value is ``markitup``
+**MARKDOWN_EDITOR_SKIN** - skin option, default value is ``markitup``
 
 Example: `settings.py` ::
 
-    MARKDOWN_SKIN = 'simple'
+    MARKDOWN_EDITOR_SKIN = 'simple'
 
 **MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to textarea.markItUp() 
 
@@ -75,7 +107,7 @@ Example: `settings.py` ::
 Changes
 =======
 
-Make sure you`ve read the following document if you are upgrading from previous versions of scss:
+Make sure you`ve read the following document if you are upgrading from previous versions:
 
 http://packages.python.org/django-markdown/changes.html
 

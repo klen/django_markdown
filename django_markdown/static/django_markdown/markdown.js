@@ -113,7 +113,7 @@ miu = (function($){
         }
         
         /*
-         * Dynamicaly adds button to the editor at index position
+         * Dynamically adds button to the editor at index position
          * */
         function addButton(conf, index){
             var index = (!index || index > editorSettings.markupSet.length ? editorSettings.markupSet.length : index);
@@ -124,7 +124,7 @@ miu = (function($){
         }
         
         /*
-         * Dynamicaly removess button from the editor at index position
+         * Dynamically removes button from the editor at index position
          * */
         function removeButton(index){
             editorSettings.markupSet = $.merge(editorSettings.markupSet.slice(0, index),
