@@ -1,54 +1,21 @@
-/* -------------------------------------------------------------------
-// markItUp!
-// By Jay Salvat - http://markitup.jaysalvat.com/
-// ------------------------------------------------------------------*/
-.miu-icon-h1 a {
-	background-image:url(images/h1.png); 
-}
-.miu-icon-h2 a {
-	background-image:url(images/h2.png); 
-}
-.miu-icon-h3 a {
-	background-image:url(images/h3.png); 
-}
-.miu-icon-h4 a {
-	background-image:url(images/h4.png); 
-}
-.miu-icon-h5 a {
-	background-image:url(images/h5.png); 
-}
-.miu-icon-h6 a {
-	background-image:url(images/h6.png); 
+.miu-icon a {
+    width: 16px; 
+    height: 16px; 
+    background: url(images/icons-sprite.png) no-repeat top left;
 }
 
-.miu-icon-bold a {
-	background-image:url(images/bold.png);
-}
-.miu-icon-italic a {
-	background-image:url(images/italic.png);
-}
-
-.miu-icon-list-bullet a {
-	background-image:url(images/list-bullet.png);
-}
-.miu-icon-list-numeric a {
-	background-image:url(images/list-numeric.png);
-}
-
-.miu-icon-picture a {
-	background-image:url(images/picture.png); 
-}
-.miu-icon-link a {
-	background-image:url(images/link.png);
-}
-
-.miu-icon-quotes a	{
-	background-image:url(images/quotes.png);
-}
-.miu-icon-code a	{
-	background-image:url(images/code.png);
-}
-
-.miu-icon-preview a {
-	background-image:url(images/preview.png);
-}
+.miu-icon-bold a { background-position: 0 0; } 
+.miu-icon-code a { background-position: -66px 0; } 
+.miu-icon-h1 a { background-position: -132px 0; } 
+.miu-icon-h2 a { background-position: -198px 0; } 
+.miu-icon-h3 a { background-position: -264px 0; } 
+.miu-icon-h4 a { background-position: -330px 0; } 
+.miu-icon-h5 a { background-position: -396px 0; } 
+.miu-icon-h6 a { background-position: -462px 0; } 
+.miu-icon-italic a { background-position: -528px 0; } 
+.miu-icon-link a { background-position: -594px 0; } 
+.miu-icon-list-bullet a { background-position: -660px 0; } 
+.miu-icon-list-numeric a { background-position: -726px 0; } 
+.miu-icon-picture a { background-position: -792px 0; } 
+.miu-icon-preview a { background-position: -858px 0; } 
+.miu-icon-quotes a { background-position: -924px 0; } 
