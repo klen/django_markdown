@@ -2,53 +2,53 @@
 // markItUp!
 // By Jay Salvat - http://markitup.jaysalvat.com/
 // ------------------------------------------------------------------*/
-.markItUp .markItUpButton1 a {
+.miu-icon-h1 a {
 	background-image:url(images/h1.png); 
 }
-.markItUp .markItUpButton2 a {
+.miu-icon-h2 a {
 	background-image:url(images/h2.png); 
 }
-.markItUp .markItUpButton3 a {
+.miu-icon-h3 a {
 	background-image:url(images/h3.png); 
 }
-.markItUp .markItUpButton4 a {
+.miu-icon-h4 a {
 	background-image:url(images/h4.png); 
 }
-.markItUp .markItUpButton5 a {
+.miu-icon-h5 a {
 	background-image:url(images/h5.png); 
 }
-.markItUp .markItUpButton6 a {
+.miu-icon-h6 a {
 	background-image:url(images/h6.png); 
 }
 
-.markItUp .markItUpButton7 a {
+.miu-icon-bold a {
 	background-image:url(images/bold.png);
 }
-.markItUp .markItUpButton8 a {
+.miu-icon-italic a {
 	background-image:url(images/italic.png);
 }
 
-.markItUp .markItUpButton9 a {
+.miu-icon-list-bullet a {
 	background-image:url(images/list-bullet.png);
 }
-.markItUp .markItUpButton10 a {
+.miu-icon-list-numeric a {
 	background-image:url(images/list-numeric.png);
 }
 
-.markItUp .markItUpButton11 a {
+.miu-icon-picture a {
 	background-image:url(images/picture.png); 
 }
-.markItUp .markItUpButton12 a {
+.miu-icon-link a {
 	background-image:url(images/link.png);
 }
 
-.markItUp .markItUpButton13 a	{
+.miu-icon-quotes a	{
 	background-image:url(images/quotes.png);
 }
-.markItUp .markItUpButton14 a	{
+.miu-icon-code a	{
 	background-image:url(images/code.png);
 }
 
-.markItUp .preview a {
+.miu-icon-preview a {
 	background-image:url(images/preview.png);
 }

@@ -2,7 +2,7 @@ from django import forms
 from django.core.urlresolvers import reverse
 from django.conf import settings
 from django.utils.safestring import mark_safe
-from django.utils.simplejson import simplejson
+from django.utils import simplejson
 
 
 class MarkdownWidget(forms.Textarea):
