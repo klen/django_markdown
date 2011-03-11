@@ -95,7 +95,7 @@ miu = (function($){
     /*
      * Single markItUp'ed textarea class
      * */
-    function Editor(textareId, extraSettings){
+    function Editor(textareaId, extraSettings){
         
         /*
          * Editor instance: default mIu settings extended with what you passed to miu.init(..., extraSettings)
@@ -136,7 +136,7 @@ miu = (function($){
          * Initialize/re-initialize the editor
          * */
         function init(){
-            with($('#' + textareId)){
+            with($('#' + textareaId)){
                 markItUpRemove();
                 markItUp(editorSettings);
             }
@@ -165,18 +165,18 @@ miu = (function($){
         
         /*
          * Returns editor instance by textarea id, 
-         * if no textareId passed then all instances will be returned
+         * if no textareaId passed then all instances will be returned
          * */
-        editors: function(textareId){
-            return textareId ? editors[textareId] : editors;
+        editors: function(textareaId){
+            return textareaId ? editors[textareaId] : editors;
         },
                 
         /*
          * Shortcut for initializing editor
          * */
-        init: function(textareId, extraSettings){
+        init: function(textareaId, extraSettings){
             $(document).ready(function() {
-                editors[textareId] = new Editor(textareId, extraSettings);
+                editors[textareaId] = new Editor(textareaId, extraSettings);
             });
         }
         
