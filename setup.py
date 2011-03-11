@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-from django_markdown import VERSION, PROJECT
+from django_markdown import VERSION, PROJECT, LICENSE
 
 
 MODULE_NAME = 'django_markdown'
@@ -26,12 +26,23 @@ META_DATA = dict(
     version = VERSION,
     description = read('DESCRIPTION'),
     long_description = read('README.rst'),
-    license='GNU LGPL',
+    license=LICENSE,
 
     author = "Kirill Klenov",
     author_email = "horneds@gmail.com",
-
     url = "http://github.com/klen/django-markdown.git",
+
+    keywords= 'html markdown django',
+    classifiers=[
+        'Development Status :: 5 - Production/Stable',
+        'Intended Audience :: Developers',
+        'Natural Language :: Russian',
+        'Natural Language :: English',
+        'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)',
+        'Programming Language :: Python',
+        'Topic :: Software Development :: Code Generators',
+        'Topic :: Text Processing :: Markup',
+    ],
 
     packages = find_packages(),
     package_data = { '': PACKAGE_DATA, },

@@ -12,7 +12,7 @@ register: _register clean
 remove:
 	sudo pip uninstall $(MODULE)
 
-upload: _upload clean _commit
+upload: _upload clean _commit doc
 
 test:
 	cd example_project && ./manage.py test main
@@ -28,7 +28,10 @@ _commit:
 	git add . -u
 	git commit
 	git push origin
-	git push intaxi
 
 _register:
 	python setup.py register
+
+doc:
+	python setup.py build_sphinx --source-dir=docs/ --build-dir=docs/_build --all-files
+	python setup.py upload_sphinx --upload-dir=docs/_build/html
