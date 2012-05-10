@@ -141,13 +141,14 @@ Copyright
 
 Copyright (c) 2011 Kirill Klenov (horneds@gmail.com)
 
-Markitup:
+Markitup_:
     (c) 2008 Jay Salvat
     http://markitup.jaysalvat.com/ 
     
 
 .. _GNU lesser general public license: http://www.gnu.org/copyleft/lesser.html
 .. _pypi: http://packages.python.org/django-markdown/
+.. _Markitup: http://markitup.jaysalvat.com/ 
 .. _github: https://github.com/klen/django_markdown
 .. _klen: https://github.com/klen
 .. _yavorskiy: https://github.com/yavorskiy
