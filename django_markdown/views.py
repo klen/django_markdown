@@ -1,7 +1,7 @@
-from django.views.generic.simple import direct_to_template
+from django.shortcuts import render
 
 
 def preview(request):
-    return direct_to_template(
+    return render(
             request, 'django_markdown/preview.html',
             content=request.REQUEST.get('data', 'No content posted'))
