@@ -125,6 +125,9 @@
 
 				// listen key events
 				$$.keydown(keyPressed).keyup(keyPressed);
+
+                // listen scroll events
+                $$.scroll(handleTextareaScroll);
 				
 				// bind an event to catch external calls
 				$$.bind("insertion", function(e, settings) {
@@ -428,6 +431,11 @@
 							iFrame.insertBefore(header);
 						}	
 						previewWindow = iFrame[iFrame.length - 1].contentWindow || frame[iFrame.length - 1];
+
+                        // listen scoll events
+                        iFrame.load(function() {
+                           iFrame.contents().scroll(handleiFrameScroll);
+                        });
 					}
 				} else if (altKey === true) {
 					if (iFrame) {
@@ -536,6 +544,36 @@
 					}
 				}
 			}
+
+            var scrolled = false;
+
+            function handleTextareaScroll() {
+                if (!scrolled) {
+                    if (iFrame) {
+                        var scrollRate = $(this).scrollTop() / this.scrollHeight;
+
+                        iFrame.contents().scrollTop(scrollRate*iFrame.contents().height());
+
+                        scrolled = true;
+                    }
+                }
+                else {
+                    scrolled = false;
+                }
+            }
+
+            function handleiFrameScroll() {
+                if (!scrolled) {
+                    var scrollRate = iFrame.contents().scrollTop() / iFrame.contents().height();
+
+                    $(textarea).scrollTop(scrollRate*textarea.scrollHeight);
+
+                    scrolled = true;
+                }
+                else {
+                    scrolled = false;
+                }
+            }
 
 			init();
 		});
