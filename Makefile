@@ -14,9 +14,6 @@ remove:
 
 upload: _upload clean _commit doc
 
-test:
-	cd example_project && ./manage.py test main
-
 _install:
 	sudo pip install -U .
 
