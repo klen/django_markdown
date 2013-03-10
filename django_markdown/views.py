@@ -8,4 +8,4 @@ def preview(request):
 
     return render(
         request, 'django_markdown/preview.html',
-        content=request.REQUEST.get('data', 'No content posted'), css=css)
+        {'content':request.REQUEST.get('data', 'No content posted'), 'css':css})
