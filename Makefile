@@ -1,34 +1,34 @@
 MODULE=django_markdown
+SPHINXBUILD=sphinx-build
+ALLSPHINXOPTS= -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
+BUILDDIR=_build
 
+.PHONY: help
+# target: help - Display callable targets
+help:
+	@egrep "^# target:" [Mm]akefile
+
+.PHONY: clean
+# target: clean - Display callable targets
 clean:
-	sudo rm -rf build dist django_markdown.egg-info
-	find . -name "*.pyc" -delete
-	find . -name "*.orig" -delete
+	@rm -rf build dist docs/_build
+	@rm -f *.py[co]
+	@rm -f *.orig
+	@rm -f */*.py[co]
+	@rm -f */*.orig
 
-install: remove _install clean
+.PHONY: register
+# target: register - Register module on PyPi
+register:
+	@python setup.py register
 
-register: _register clean
+.PHONY: upload
+# target: upload - Upload module on PyPi
+upload: docs
+	@python setup.py sdist upload || echo 'Upload already'
 
-remove:
-	sudo pip uninstall $(MODULE)
-
-upload: _upload clean _commit doc
-
-_install:
-	sudo pip install -U .
-
-_upload:
-	python setup.py sdist upload
-
-_commit:
-	git add .
-	git add . -u
-	git commit
-	git push origin
-
-_register:
-	python setup.py register
-
-doc:
+.PHONY: docs
+# target: docs - Compile and upload docs
+docs:
 	python setup.py build_sphinx --source-dir=docs/ --build-dir=docs/_build --all-files
 	python setup.py upload_sphinx --upload-dir=docs/_build/html
