@@ -106,10 +106,7 @@ miu = (function($){
          * Initialize/re-initialize the editor
          * */
         function init(){
-            with($('#' + textareaId)){
-                markItUpRemove();
-                markItUp(editorSettings);
-            }
+            $('#' + textareaId).markItUp(editorSettings);
         }
         
         /*
