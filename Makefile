@@ -1,7 +1,15 @@
+BUILDDIR=_build
 MODULE=django_markdown
 SPHINXBUILD=sphinx-build
 ALLSPHINXOPTS= -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
-BUILDDIR=_build
+VIRTUALENV=$(shell echo "$${VDIR:-'.env'}")
+
+all: $(VIRTUALENV)
+
+$(VIRTUALENV): requirements.txt
+	@virtualenv --no-site-packages $(VIRTUALENV)
+	@$(VIRTUALENV)/bin/pip install -M -r requirements.txt
+	touch $(VIRTUALENV)
 
 .PHONY: help
 # target: help - Display callable targets
@@ -32,3 +40,8 @@ upload: docs
 docs:
 	python setup.py build_sphinx --source-dir=docs/ --build-dir=docs/_build --all-files
 	python setup.py upload_sphinx --upload-dir=docs/_build/html
+
+.PHONY: t
+# target: t - Runs tests
+t: clean
+	$(VIRTUALENV)/bin/python setup.py test
