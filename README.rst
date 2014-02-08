@@ -16,11 +16,11 @@ Documentaton available at pypi_ or github_.
     :target: https://coveralls.io/r/klen/django_markdown
     :alt: Coverals
 
-.. image:: https://pypip.in/v/django_markdown/badge.png
+.. image:: https://pypip.in/v/django-markdown/badge.png
     :target: https://crate.io/packages/django_markdown
     :alt: Version
 
-.. image:: https://pypip.in/d/django_markdown/badge.png
+.. image:: https://pypip.in/d/django-markdown/badge.png
     :target: https://crate.io/packages/django_markdown
     :alt: Downloads
 
