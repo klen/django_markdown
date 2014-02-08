@@ -16,5 +16,5 @@ def preview(request):
 
     return render(
         request, 'django_markdown/preview.html',
-        dict(content=request.REQUEST.get('data', 'No content posted'),
-             css=css))
+        dict(
+            content=request.REQUEST.get('data', 'No content posted'), css=css))
