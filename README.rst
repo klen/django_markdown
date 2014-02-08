@@ -1,18 +1,47 @@
 django-markdown
 ###############
 
+.. _description:
+
 **Django markdown** is django application that allows use markdown wysiwyg in flatpages, admin forms and other forms.
 Documentaton available at pypi_ or github_.
 
+.. _badges:
+
+.. image:: https://secure.travis-ci.org/klen/django_markdown.png?branch=develop
+    :target: http://travis-ci.org/klen/django_markdown
+    :alt: Build Status
+
+.. image:: https://coveralls.io/repos/klen/django_markdown/badge.png?branch=develop
+    :target: https://coveralls.io/r/klen/django_markdown
+    :alt: Coverals
+
+.. image:: https://pypip.in/v/django_markdown/badge.png
+    :target: https://crate.io/packages/django_markdown
+    :alt: Version
+
+.. image:: https://pypip.in/d/django_markdown/badge.png
+    :target: https://crate.io/packages/django_markdown
+    :alt: Downloads
+
+.. image:: https://dl.dropboxusercontent.com/u/487440/reformal/donate.png
+    :target: https://www.gittip.com/klen/
+    :alt: Donate
+
+
 .. contents::
+
+.. _requirements:
 
 Requirements
 ============
 
-- python >= 2.5
-- django >= 1.2
+- python >= 2.6
+- django >= 1.4
 - markdown
 
+
+.. _installation:
 
 Installation
 ============
