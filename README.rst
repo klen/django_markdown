@@ -76,7 +76,7 @@ Use django_markdown
 #) Custom admins: ::
 
     from django_markdown.admin import MarkdownModelAdmin
-    adimin.site.register(MyModel, MarkdownModelAdmin)
+    admin.site.register(MyModel, MarkdownModelAdmin)
 
 #) Flatpages: ::
 
