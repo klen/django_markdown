@@ -13,14 +13,14 @@ Documentaton available at pypi_ or github_.
     :alt: Build Status
 
 .. image:: https://coveralls.io/repos/klen/django_markdown/badge.png?branch=develop
-    :target: https://coveralls.io/r/klen/django_markdown
-    :alt: Coverals
+    :target: https://coveralls.io/r/klen/django_markdown?branch=develop
+    :alt: Coveralls
 
-.. image:: https://pypip.in/v/django_markdown/badge.png
+.. image:: https://pypip.in/v/django-markdown/badge.png
     :target: https://crate.io/packages/django_markdown
     :alt: Version
 
-.. image:: https://pypip.in/d/django_markdown/badge.png
+.. image:: https://pypip.in/d/django-markdown/badge.png
     :target: https://crate.io/packages/django_markdown
     :alt: Downloads
 
@@ -76,7 +76,7 @@ Use django_markdown
 #) Custom admins: ::
 
     from django_markdown.admin import MarkdownModelAdmin
-    adimin.site.register(MyModel, MarkdownModelAdmin)
+    admin.site.register(MyModel, MarkdownModelAdmin)
 
 #) Flatpages: ::
 

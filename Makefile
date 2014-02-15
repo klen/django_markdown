@@ -45,3 +45,14 @@ docs:
 # target: t - Runs tests
 t: clean
 	$(VIRTUALENV)/bin/python setup.py test
+
+$(CURDIR)/example/db.sqlite3:
+	$(VIRTUALENV)/bin/python example/manage.py syncdb --noinput
+
+.PHONY: run
+run: $(CURDIR)/example/db.sqlite3
+	$(VIRTUALENV)/bin/python example/manage.py runserver
+
+.PHONY: shell
+shell: $(CURDIR)/example/db.sqlite3
+	$(VIRTUALENV)/bin/python example/manage.py shell
