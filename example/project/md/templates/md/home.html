@@ -1,0 +1,18 @@
+{% extends "admin/base.html" %}
+{% load i18n admin_urls admin_static admin_modify %}
+
+{% block title %}Django Markdown{% endblock %}
+
+{% block branding %} <h1 id="site-name">Django Markdown</h1> {% endblock %}
+
+{% block nav-global %}{% endblock %}
+
+{% block extrahead %}{{ block.super }}
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+{% endblock %}
+
+{% block content %}
+    {{ form.media }}
+    {{ form.as_ul }}
+{% endblock %}
+

@@ -13,8 +13,8 @@ Documentaton available at pypi_ or github_.
     :alt: Build Status
 
 .. image:: https://coveralls.io/repos/klen/django_markdown/badge.png?branch=develop
-    :target: https://coveralls.io/r/klen/django_markdown
-    :alt: Coverals
+    :target: https://coveralls.io/r/klen/django_markdown?branch=develop
+    :alt: Coveralls
 
 .. image:: https://pypip.in/v/django-markdown/badge.png
     :target: https://crate.io/packages/django_markdown
