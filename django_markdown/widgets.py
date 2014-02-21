@@ -1,9 +1,14 @@
 from django import forms
 from django.conf import settings
 from django.core.urlresolvers import reverse
-from django.utils import simplejson
 from django.utils.safestring import mark_safe
-
+try:
+    import json as simplejson
+except ImportError:
+    try:
+        import simplejson
+    except ImportError:
+        from django.utils import simplejson
 
 class MarkdownWidget(forms.Textarea):
 
