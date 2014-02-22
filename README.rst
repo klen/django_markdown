@@ -126,7 +126,13 @@ Example: `settings.py` ::
 
     MARKDOWN_EDITOR_SKIN = 'simple'
 
-**MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to textarea.markItUp() 
+**MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to textarea.markItUp()
+
+**MARKDOWN_EXTENSIONS** - optional list of extensions passed to Markdown, discussed at https://pythonhosted.org/Markdown/extensions/index.html#officially-supported-extensions
+
+Example: `settings.py` ::
+
+    MARKDOWN_EXTENSIONS = ['extra']
 
 
 Changes
