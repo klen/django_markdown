@@ -1,3 +1,7 @@
+2014-02-22  dfeinzeig
+
+	* Support markdown extensions
+
 2014-02-21  F. Gabriel Gosselin
 
 	* Patching use of deprecated django.utils.simplejson

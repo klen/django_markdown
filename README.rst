@@ -135,6 +135,13 @@ Example: `settings.py` ::
     MARKDOWN_EXTENSIONS = ['extra']
 
 
+Examples
+========
+
+Execute `make run` in sources directory. Open http://127.0.0.1:8000 in your
+browser.
+
+
 Changes
 =======
 
