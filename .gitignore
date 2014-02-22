@@ -1,6 +1,7 @@
 build
 dist
 sitegen.egg-info
+db.sqlite3
 .ropeproject
 .project
 .pydevproject
