@@ -1,3 +1,7 @@
+2014-02-25  horneds
+
+	* WARNING: `DJANGO_MARKDOWN_STYLE` settings renamed to `MARKDOWN_STYLE`
+
 2014-02-22  dfeinzeig
 
 	* Support markdown extensions

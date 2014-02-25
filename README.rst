@@ -134,12 +134,14 @@ Example: `settings.py` ::
 
     MARKDOWN_EXTENSIONS = ['extra']
 
+**MARKDOWN_STYLE** - path to preview styles. By default `django_markdown/preview.css`
+
 
 Examples
 ========
 
 Execute `make run` in sources directory. Open http://127.0.0.1:8000 in your
-browser.
+browser. For admin access use 'root:root' credentials.
 
 
 Changes
