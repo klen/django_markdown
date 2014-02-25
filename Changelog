@@ -1,6 +1,7 @@
-2014-02-25  horneds
+2014-02-25  horneds dfeinzeig
 
 	* WARNING: `DJANGO_MARKDOWN_STYLE` settings renamed to `MARKDOWN_STYLE`
+	* Fix compress with yui compressor
 
 2014-02-22  dfeinzeig
 

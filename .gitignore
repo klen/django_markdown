@@ -10,3 +10,5 @@ db.sqlite3
 dist
 docs/_*
 sitegen.egg-info
+todo.txt
+_

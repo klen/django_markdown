@@ -54,6 +54,8 @@ Installation
 Setup
 =====
 
+.. note:: 'django_markdown' require 'django.contrib.staticfiles' in INSTALLED_APPS
+
 - Add 'django_markdown' to INSTALLED_APPS ::
 
     INSTALLED_APPS += ( 'django_markdown', )
@@ -71,7 +73,7 @@ Use django_markdown
 
     from django_markdown.widgets import MarkdownWidget
     class MyCustomForm(forms.Form):
-        content = forms.CharField( widget=MarkdownWidget() )
+        content = forms.CharField(widget=MarkdownWidget())
 
 #) Custom admins: ::
 
@@ -87,46 +89,18 @@ Use django_markdown
     admin.autodiscover()
     flatpages.register()
     urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
-
-#) JavaScript API: ::
-
-    // Editors manager ``miu`` methods
-
-    // Initialize editor using default settings extended with ``extraSettings``
-    miu.init(textareaId, extraSettings);
-
-    // Get default mIu settings
-    miu.settings();
-
-    // Set default mIu settings
-    miu.settings(newSettings);
-    
-    // Get all initialized aditors
-    miu.editors();
-    
-    // Get certain editor
-    miu.editors(textareaId);
-    
-    
-    // Editor instance methods
-    
-    // Dynamically add button at ``index`` position 
-    editor.addButton(conf, index)
-    
-    // Dynamically remove button at ``index`` position
-    editor.removeButton(index)
     
 
 Settings
 ========
+
+**MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to textarea.markItUp()
 
 **MARKDOWN_EDITOR_SKIN** - skin option, default value is ``markitup``
 
 Example: `settings.py` ::
 
     MARKDOWN_EDITOR_SKIN = 'simple'
-
-**MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to textarea.markItUp()
 
 **MARKDOWN_EXTENSIONS** - optional list of extensions passed to Markdown, discussed at https://pythonhosted.org/Markdown/extensions/index.html#officially-supported-extensions
 
@@ -135,6 +109,10 @@ Example: `settings.py` ::
     MARKDOWN_EXTENSIONS = ['extra']
 
 **MARKDOWN_STYLE** - path to preview styles. By default `django_markdown/preview.css`
+
+**MARKDOWN_SET_PATH** - path to folder with sets. By default `django_markdown/sets`
+
+**MARKDOWN_SET_NAME** - name for current set. By default `markdown`.
 
 
 Examples
