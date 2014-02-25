@@ -24,7 +24,7 @@ DEBUG = True
 
 TEMPLATE_DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['localhost']
 
 SITE_ID = 1
 
@@ -87,3 +87,5 @@ STATIC_URL = '/static/'
 
 # Custom settings
 INSTALLED_APPS += 'django_markdown', 'django.contrib.flatpages', 'project.md'
+
+MARKDOWN_EXTENSIONS = 'extra', 'codehilite'

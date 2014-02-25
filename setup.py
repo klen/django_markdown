@@ -2,7 +2,7 @@ import os
 
 from setuptools import setup, find_packages
 
-from django_markdown import version, PROJECT, LICENSE
+from django_markdown import VERSION, PROJECT, LICENSE
 
 
 MODULE_NAME = 'django_markdown'
@@ -26,7 +26,7 @@ install_requires = [l for l in read('requirements.txt').split('\n')
 
 META_DATA = dict(
     name=PROJECT,
-    version=version,
+    VERSION=VERSION,
     description=read('DESCRIPTION'),
     long_description=read('README.rst'),
     license=LICENSE,

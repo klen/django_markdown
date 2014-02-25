@@ -15,3 +15,8 @@ class DjangoMarkdownTestCase(TestCase):
             data="# header \n *test*"
         ))
         self.assertContains(response, '<h1>header</h1>')
+
+        response = self.client.post('/markdown/preview/', data=dict(
+            data="# header \n *test*"
+        ))
+        self.assertContains(response, '<h1>header</h1>')
