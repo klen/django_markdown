@@ -32,12 +32,12 @@ miu = (function($){
     /*
      * Work around bug in python-markdown where header underlines must be at least 3 chars
      * */
-    function markdownTitle(markItUp, char) {
-        heading = '';
-        n = $.trim(markItUp.selection || markItUp.placeHolder).length;
+    function markdownTitle(markItUp, achar) {
+        var heading = '';
+        var n = $.trim(markItUp.selection || markItUp.placeHolder).length;
         if (n < 3) { n = 3; }
         for(i = 0; i < n; i++) {
-            heading += char;
+            heading += achar;
         }
         return '\n'+heading;
     }
