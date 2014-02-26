@@ -26,7 +26,7 @@ install_requires = [l for l in read('requirements.txt').split('\n')
 
 META_DATA = dict(
     name=PROJECT,
-    VERSION=VERSION,
+    version=VERSION,
     description=read('DESCRIPTION'),
     long_description=read('README.rst'),
     license=LICENSE,
