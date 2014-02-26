@@ -1,7 +1,10 @@
 """ Support 'markdown' filter. """
-from django import template
+import posixpath
 
-from ..utils import markdown as _markdown, MARKDOWN_EXTENSIONS
+from django import template
+from django.core.urlresolvers import reverse
+
+from ..utils import markdown as _markdown, settings, simplejson, mark_safe
 
 
 register = template.Library()
@@ -22,7 +25,7 @@ def markdown(value, arg=None):
     :returns: A rendered markdown
 
     """
-    extensions = (arg and arg.split(',')) or MARKDOWN_EXTENSIONS
+    extensions = (arg and arg.split(',')) or settings.MARKDOWN_EXTENSIONS
     return _markdown(value, extensions=extensions, safe=False)
 
 
@@ -38,5 +41,62 @@ def markdown_safe(value, arg=None):
     :returns: A rendered markdown.
 
     """
-    extensions = (arg and arg.split(',')) or MARKDOWN_EXTENSIONS
+    extensions = (arg and arg.split(',')) or settings.MARKDOWN_EXTENSIONS
     return _markdown(value, extensions=extensions, safe=True)
+
+
+@register.inclusion_tag('django_markdown/editor_init.html')
+def markdown_editor(el_id):
+    """ Enable markdown editor for given textarea.
+
+    :returns: Editor template context.
+
+    """
+    return dict(
+        el_id=el_id,
+        extra_settings=mark_safe(simplejson.dumps(
+            dict(previewParserPath=reverse('django_markdown_preview')))))
+
+
+@register.inclusion_tag('django_markdown/media_all.html')
+def markdown_media():
+    """ Add css and js requirements to HTML.
+
+    :returns: Editor template context.
+
+    """
+    ctx = markdown_media_js()
+    ctx.update(markdown_media_css())
+    return ctx
+
+
+@register.inclusion_tag('django_markdown/media_js.html')
+def markdown_media_js():
+    """ Add js requirements to HTML.
+
+    :returns: Editor template context.
+
+    """
+    return dict(
+        JS_SET=posixpath.join(
+            settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'set.js'
+        )
+    )
+
+
+@register.inclusion_tag('django_markdown/media_js.html')
+def markdown_media_css():
+    """ Add css requirements to HTML.
+
+    :returns: Editor template context.
+
+    """
+    return dict(
+        CSS_SET=posixpath.join(
+            settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'style.css'
+        ),
+        CSS_SKIN=posixpath.join(
+            'django_markdown', 'skins', settings.MARKDOWN_EDITOR_SKIN,
+            'style.css'
+        )
+    )
