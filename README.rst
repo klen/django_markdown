@@ -90,12 +90,12 @@ Use django_markdown
     flatpages.register()
     urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
 
- #) Template tags: ::
-    
+#) Template tags: ::
+
     <textarea name="test" id="new"></textarea>
     {% markdown_editor "new" %}
     {% markdown_media %}
-    
+
 
 Settings
 ========
