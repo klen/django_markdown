@@ -1,6 +1,7 @@
 2014-02-26  horneds
 
 	* Support custom extensions set in filters
+	* Add template tags: 'markdown_editor', 'markdown_media', 'markdown_media_js', 'markdown_media_css'
 
 2014-02-25  horneds dfeinzeig
 

@@ -89,6 +89,12 @@ Use django_markdown
     admin.autodiscover()
     flatpages.register()
     urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
+
+ #) Template tags: ::
+    
+    <textarea name="test" id="new"></textarea>
+    {% markdown_editor "new" %}
+    {% markdown_media %}
     
 
 Settings

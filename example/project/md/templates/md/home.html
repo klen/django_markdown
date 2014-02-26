@@ -1,5 +1,5 @@
 {% extends "admin/base.html" %}
-{% load i18n admin_urls admin_static admin_modify %}
+{% load django_markdown %}
 
 {% block title %}Django Markdown{% endblock %}
 
@@ -12,7 +12,12 @@
 {% endblock %}
 
 {% block content %}
+    <h2>Render form</h2>
     {{ form.media }}
     {{ form.as_ul }}
+    <h2>Render template tag</h2>
+    <textarea name="test" id="new"></textarea>
+    {% markdown_editor "new" %}
+    {% markdown_media %}
 {% endblock %}
 

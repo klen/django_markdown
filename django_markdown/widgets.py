@@ -2,20 +2,11 @@
 import posixpath
 
 from django import forms
-from django.core.urlresolvers import reverse
-from django.utils.safestring import mark_safe
 from django.contrib.admin.widgets import AdminTextareaWidget
+from django.utils.safestring import mark_safe
 
 from . import settings
-
-
-try:
-    import json as simplejson
-except ImportError:
-    try:
-        import simplejson
-    except ImportError:
-        from django.utils import simplejson
+from .utils import editor_js_initialization
 
 
 class MarkdownWidget(forms.Textarea):
@@ -65,26 +56,8 @@ class MarkdownWidget(forms.Textarea):
 
         """
         html = super(MarkdownWidget, self).render(name, value, attrs)
-
         attrs = self.build_attrs(attrs)
-
-        editor_settings = dict(
-            previewParserPath=reverse('django_markdown_preview'),
-            **settings.MARKDOWN_EDITOR_SETTINGS)
-
-        html += """
-        <script type="text/javascript">
-        (function($) {
-          $(document).ready(function() {
-            var element = $("#%s");
-            if(!element.hasClass("markItUpEditor")) {
-              element.markItUp(mySettings, %s);
-            }
-          });
-          })(jQuery);
-        </script>
-        """ % (attrs['id'], simplejson.dumps(editor_settings))
-
+        html += editor_js_initialization(attrs['id'])
         return mark_safe(html)
 
 
