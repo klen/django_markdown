@@ -90,12 +90,12 @@ Use django_markdown
     flatpages.register()
     urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
 
- #) Template tags: ::
-    
+#) Template tags: ::
+
     <textarea name="test" id="new"></textarea>
     {% markdown_editor "new" %}
     {% markdown_media %}
-    
+
 
 Settings
 ========
@@ -113,6 +113,8 @@ Example: `settings.py` ::
 Example: `settings.py` ::
 
     MARKDOWN_EXTENSIONS = ['extra']
+
+**MARKDOWN_EXTENSION_CONFIGS** - Configure extensions, discussed at https://pythonhosted.org/Markdown/reference.html#extension_configs
 
 **MARKDOWN_STYLE** - path to preview styles. By default `django_markdown/preview.css`
 

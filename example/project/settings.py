@@ -89,3 +89,8 @@ STATIC_URL = '/static/'
 INSTALLED_APPS += 'django_markdown', 'django.contrib.flatpages', 'project.md'
 
 MARKDOWN_EXTENSIONS = 'extra', 'codehilite'
+MARKDOWN_EXTENSION_CONFIGS = {
+    'codehilite': {
+        'linenums': False,
+    }
+}
