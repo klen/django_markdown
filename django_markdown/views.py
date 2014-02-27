@@ -2,7 +2,7 @@
 
 from django.shortcuts import render
 
-from .settings import MARKDOWN_STYLE, STATIC_URL
+from . import settings
 
 
 def preview(request):
@@ -12,8 +12,7 @@ def preview(request):
 
     """
     return render(
-        request,
-        'django_markdown/preview.html', dict(
+        request, settings.MARKDOWN_PREVIEW_TEMPLATE, dict(
             content=request.REQUEST.get('data', 'No content posted'),
-            css=STATIC_URL + MARKDOWN_STYLE,
+            css=settings.STATIC_URL + settings.MARKDOWN_STYLE,
         ))

@@ -2,6 +2,7 @@
 
 	* Support extension configurations
 	* Fix markdown extra set
+	* Added 'MARKDOWN_PREVIEW_TEMPALTE' option
 
 2014-02-26  horneds
 

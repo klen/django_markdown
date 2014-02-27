@@ -13,5 +13,6 @@ MARKDOWN_SET_NAME = getattr(
     settings, 'MARKDOWN_SET_NAME',
     'markdownextra' if 'extra' in MARKDOWN_EXTENSIONS else 'markdown')
 
+MARKDOWN_PREVIEW_TEMPLATE = getattr(settings, 'MARKDOWN_PREVIEW_TEMPLATE', 'django_markdown/preview.html')
 MARKDOWN_STYLE = getattr(settings, 'MARKDOWN_STYLE', 'django_markdown/preview.css')
 STATIC_URL = settings.STATIC_URL or settings.MEDIA_URL

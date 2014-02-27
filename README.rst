@@ -100,7 +100,7 @@ Use django_markdown
 Settings
 ========
 
-**MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to textarea.markItUp()
+**MARKDOWN_EDITOR_SETTINGS** - holds the extra parameters set to be passed to ``textarea.markItUp()``
 
 **MARKDOWN_EDITOR_SKIN** - skin option, default value is ``markitup``
 
@@ -115,6 +115,8 @@ Example: `settings.py` ::
     MARKDOWN_EXTENSIONS = ['extra']
 
 **MARKDOWN_EXTENSION_CONFIGS** - Configure extensions, discussed at https://pythonhosted.org/Markdown/reference.html#extension_configs
+
+**MARKDOWN_PREVIEW_TEMPLATE** - Template for preview a markdown. By default `django_markdown/preview.css`
 
 **MARKDOWN_STYLE** - path to preview styles. By default `django_markdown/preview.css`
 
