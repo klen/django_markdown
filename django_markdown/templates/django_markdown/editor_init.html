@@ -1,9 +1,11 @@
 <script type="text/javascript">
 (function($) {
     $(document).ready(function() {
-        var element = $("#{{ el_id }}");
-        if(!element.hasClass("markItUpEditor")) element.markItUp(
-            mySettings, {{ extra_settings|default:"{}" }});
+        $("{{ selector }}").each(function (k, el) {
+            var el = $(el);
+            if(!el.hasClass("markItUpEditor")) el.markItUp(
+                mySettings, {{ extra_settings|default:"{}" }});
+        });
     });
 })(jQuery);
 </script>

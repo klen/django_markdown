@@ -46,14 +46,14 @@ def markdown_safe(value, arg=None):
 
 
 @register.inclusion_tag('django_markdown/editor_init.html')
-def markdown_editor(el_id):
+def markdown_editor(selector):
     """ Enable markdown editor for given textarea.
 
     :returns: Editor template context.
 
     """
     return dict(
-        el_id=el_id,
+        selector=selector,
         extra_settings=mark_safe(simplejson.dumps(
             dict(previewParserPath=reverse('django_markdown_preview')))))
 
