@@ -35,7 +35,13 @@ mySettings = {
 		{name:'Definition', key:'D', openWith:'Term\n', placeHolder:':    Your definition here ' },
 		{separator:'---------------'},
 		{name:'Quotes', openWith:'> '},
-		{name:'Code Block / Code', openWith:'(!(\t|!|`)!)', closeWith:'(!(`)!)'},
+		{
+            name:'Code Block / Code',
+            key: 'K',
+            openWith:'~~~~.[![Language]!]\n',
+            closeWith:'\n~~~~',
+            placeHolder:'Your code here...'
+        },
 		{separator:'---------------'},
 		{name:'Table',
 			header:" header ",
