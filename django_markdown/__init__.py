@@ -1,4 +1,4 @@
-version_info = (0, 5, 0)
+version_info = (0, 5, 1)
 
 __version__ = VERSION = '.'.join(map(str, version_info))
 __project__ = PROJECT = 'django-markdown'
