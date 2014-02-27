@@ -35,7 +35,7 @@ def markdown(value, extensions=settings.MARKDOWN_EXTENSIONS,
         extension_configs=extension_configs, safe_mode=safe))
 
 
-def editor_js_initialization(el_id, **extra_settings):
+def editor_js_initialization(selector, **extra_settings):
     """ Return script tag with initialization code. """
 
     options = dict(
@@ -43,6 +43,6 @@ def editor_js_initialization(el_id, **extra_settings):
         **settings.MARKDOWN_EDITOR_SETTINGS)
     options.update(extra_settings)
     ctx = Context(dict(
-        el_id=el_id, extra_settings=simplejson.dumps(options)),
+        selector=selector, extra_settings=simplejson.dumps(options)),
         autoescape=False)
     return INIT_TEMPLATE.render(ctx)

@@ -57,7 +57,7 @@ class MarkdownWidget(forms.Textarea):
         """
         html = super(MarkdownWidget, self).render(name, value, attrs)
         attrs = self.build_attrs(attrs)
-        html += editor_js_initialization(attrs['id'])
+        html += editor_js_initialization("#%s" % attrs['id'])
         return mark_safe(html)
 
 
