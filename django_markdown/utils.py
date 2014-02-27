@@ -20,7 +20,9 @@ INIT_TEMPLATE = loader.get_template(
     settings.MARKDOWN_EDITOR_INIT_TEMPLATE)
 
 
-def markdown(value, extensions=settings.MARKDOWN_EXTENSIONS, safe=False):
+def markdown(value, extensions=settings.MARKDOWN_EXTENSIONS,
+             extension_configs=settings.MARKDOWN_EXTENSION_CONFIGS,
+             safe=False):
     """ Render markdown over a given value, optionally using varios extensions.
 
     Default extensions could be defined which MARKDOWN_EXTENSIONS option.
@@ -29,7 +31,8 @@ def markdown(value, extensions=settings.MARKDOWN_EXTENSIONS, safe=False):
 
     """
     return mark_safe(markdown_module.markdown(
-        force_text(value), extensions=extensions, safe_mode=safe))
+        force_text(value), extensions=extensions,
+        extension_configs=extension_configs, safe_mode=safe))
 
 
 def editor_js_initialization(el_id, **extra_settings):
