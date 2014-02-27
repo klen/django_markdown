@@ -30,6 +30,10 @@ clean:
 register:
 	@python setup.py register
 
+.PHONY: sdist
+sdist:
+	@python setup.py sdist
+
 .PHONY: upload
 # target: upload - Upload module on PyPi
 upload: docs
