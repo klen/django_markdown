@@ -42,20 +42,20 @@
 	background-image:url(images/link.png);
 }
 
-.markItUp .definition a {
+.markItUp .markItUpButton13 a {
 	background-image:url(images/book_open.png);
 }
-
-.markItUp .quotes a	{
+.markItUp .markItUpButton14 a {
 	background-image:url(images/quotes.png);
 }
-.markItUp .code a	{
+
+.markItUp .markItUpButton15 a {
 	background-image:url(images/code.png);
 }
-
-.markItUp .table a {
+.markItUp .markItUpButton16 a {
 	background-image:url(images/table.png);
 }
+
 .markItUp .preview a {
 	background-image:url(images/preview.png);
 }
