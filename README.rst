@@ -124,6 +124,8 @@ Example: `settings.py` ::
 
 **MARKDOWN_SET_NAME** - name for current set. By default `markdown`.
 
+**MARKDOWN_PROTECT_PREVIEW** - protect preview url for staff only
+
 
 Examples
 ========
