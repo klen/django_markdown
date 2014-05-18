@@ -1,8 +1,9 @@
+""" Setup Django-Markdown. """
+
 import os
 
 from setuptools import setup, find_packages
-
-from django_markdown import VERSION, PROJECT, LICENSE
+import re
 
 
 MODULE_NAME = 'django_markdown'
@@ -15,21 +16,26 @@ for directory in ['templates', 'static']:
                                 (root[len(MODULE_NAME) + 1:], filename))
 
 
-def read(fname):
+def _read(fname):
     try:
         return open(os.path.join(os.path.dirname(__file__), fname)).read()
     except IOError:
         return ''
 
-install_requires = [l for l in read('requirements.txt').split('\n')
+_meta = _read('django_markdown/__init__.py')
+_license = re.search(r'^__license__\s*=\s*"(.*)"', _meta, re.M).group(1)
+_project = re.search(r'^__project__\s*=\s*"(.*)"', _meta, re.M).group(1)
+_version = re.search(r'^__version__\s*=\s*"(.*)"', _meta, re.M).group(1)
+
+install_requires = [l for l in _read('requirements.txt').split('\n')
                     if l and not l.startswith('#')]
 
-META_DATA = dict(
-    name=PROJECT,
-    version=VERSION,
-    description=read('DESCRIPTION'),
-    long_description=read('README.rst'),
-    license=LICENSE,
+setup(
+    name=_project,
+    version=_version,
+    description=_read('DESCRIPTION'),
+    long_description=_read('README.rst'),
+    license=_license,
 
     author="Kirill Klenov",
     author_email="horneds@gmail.com",
@@ -55,5 +61,4 @@ META_DATA = dict(
     test_suite='tests',
 )
 
-if __name__ == "__main__":
-    setup(**META_DATA)
+# pylama:ignore=C0111
