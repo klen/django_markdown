@@ -84,7 +84,7 @@ def markdown_media_js():
     )
 
 
-@register.inclusion_tag('django_markdown/media_js.html')
+@register.inclusion_tag('django_markdown/media_css.html')
 def markdown_media_css():
     """ Add css requirements to HTML.
 
