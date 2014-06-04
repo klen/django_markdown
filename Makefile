@@ -42,8 +42,9 @@ upload: docs
 .PHONY: docs
 # target: docs - Compile and upload docs
 docs:
-	python setup.py build_sphinx --source-dir=docs/ --build-dir=docs/_build --all-files
-	python setup.py upload_sphinx --upload-dir=docs/_build/html
+	@pip install sphinx sphinx-pypi-upload
+	@python setup.py build_sphinx --source-dir=docs/ --build-dir=docs/_build --all-files
+	@python setup.py upload_sphinx --upload-dir=docs/_build/html
 
 .PHONY: t
 # target: t - Runs tests
