@@ -39,7 +39,7 @@ setup(
 
     author="Kirill Klenov",
     author_email="horneds@gmail.com",
-    url="http://github.com/klen/django-markdown.git",
+    url="https://github.com/klen/django_markdown",
 
     keywords='html markdown django',
     classifiers=[
