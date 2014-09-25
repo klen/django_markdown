@@ -16,10 +16,6 @@ except ImportError:
 from . import settings
 
 
-INIT_TEMPLATE = loader.get_template(
-    settings.MARKDOWN_EDITOR_INIT_TEMPLATE)
-
-
 def markdown(value, extensions=settings.MARKDOWN_EXTENSIONS,
              extension_configs=settings.MARKDOWN_EXTENSION_CONFIGS,
              safe=False):
@@ -37,6 +33,9 @@ def markdown(value, extensions=settings.MARKDOWN_EXTENSIONS,
 
 def editor_js_initialization(selector, **extra_settings):
     """ Return script tag with initialization code. """
+
+    INIT_TEMPLATE = loader.get_template(
+        settings.MARKDOWN_EDITOR_INIT_TEMPLATE)
 
     options = dict(
         previewParserPath=reverse('django_markdown_preview'),
