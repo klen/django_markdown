@@ -36,8 +36,8 @@ Documentaton available at pypi_ or github_.
 Requirements
 ============
 
-- python >= 2.6
-- django >= 1.4
+- python >= 2.7
+- django >= 1.5
 - markdown
 
 

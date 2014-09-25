@@ -1,3 +1,8 @@
+2014-09-25  horneds
+
+	* Remove python2.6, Django 1.4 support
+	* Add Django 1.7 support
+
 2014-06-04  horneds
 
 	* Fix markdown_css template tag (c) Ashley Wilson

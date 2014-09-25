@@ -12,7 +12,7 @@ def preview(request):
     """
     if settings.MARKDOWN_PROTECT_PREVIEW:
         user = getattr(request, 'user', None)
-        if user and not user.is_staff:
+        if not user or not user.is_staff:
             from django.contrib.auth.views import redirect_to_login
             return redirect_to_login(request.get_full_path())
 
