@@ -78,7 +78,7 @@ mySettings = {
 miu = {
 	markdownextraTitle: function(markItUp, achar) {
 		heading = '';
-		n = $.trim(markItUp.selection||markItUp.placeHolder).length;
+		n = jQuery.trim(markItUp.selection||markItUp.placeHolder).length;
 		for(i = 0; i < n; i++) {
 			heading += achar;
 		}
