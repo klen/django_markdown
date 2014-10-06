@@ -37,7 +37,9 @@ sdist:
 .PHONY: upload
 # target: upload - Upload module on PyPi
 upload: docs
-	@python setup.py sdist upload || echo 'Upload already'
+	@pip install wheel
+	@python setup.py sdist upload || echo 'Already uploaded'
+	@python setup.py bdist_wheel upload || echo 'Already uploaded'
 
 .PHONY: docs
 # target: docs - Compile and upload docs
