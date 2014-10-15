@@ -37,14 +37,14 @@ class MarkdownWidget(forms.Textarea):
 
         """
         js = (
-            default_storage.url(os.path.join(settings.STATIC_URL, 'django_markdown', 'jquery.init.js')),
-            default_storage.url(os.path.join(settings.STATIC_URL, 'django_markdown', 'jquery.markitup.js')),
-            default_storage.url(os.path.join(settings.STATIC_URL, settings.MARKDOWN_SET_PATH, self.__set, 'set.js'))
+            default_storage.url(os.path.join('django_markdown', 'jquery.init.js')),
+            default_storage.url(os.path.join('django_markdown', 'jquery.markitup.js')),
+            default_storage.url(os.path.join(settings.MARKDOWN_SET_PATH, self.__set, 'set.js'))
         )
         css = {
             'screen': (
-                default_storage.url(os.path.join(settings.STATIC_URL, 'django_markdown', 'skins', self.__skin, 'style.css')),
-                default_storage.url(os.path.join(settings.STATIC_URL, settings.MARKDOWN_SET_PATH, self.__set, 'style.css'))
+                default_storage.url(os.path.join('django_markdown', 'skins', self.__skin, 'style.css')),
+                default_storage.url(os.path.join(settings.MARKDOWN_SET_PATH, self.__set, 'style.css'))
             )
         }
         return forms.Media(css=css, js=js)
