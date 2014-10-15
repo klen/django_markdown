@@ -1,8 +1,9 @@
 """ Widgets for django-markdown. """
-import posixpath
+import os
 
 from django import forms
 from django.contrib.admin.widgets import AdminTextareaWidget
+from django.core.files.storage import default_storage
 from django.utils.safestring import mark_safe
 
 from . import settings
@@ -35,16 +36,15 @@ class MarkdownWidget(forms.Textarea):
         :returns: form's media
 
         """
-
         js = (
-            posixpath.join(settings.STATIC_URL, 'django_markdown', 'jquery.init.js'), # noqa
-            posixpath.join(settings.STATIC_URL, 'django_markdown', 'jquery.markitup.js'), # noqa
-            posixpath.join(settings.STATIC_URL, settings.MARKDOWN_SET_PATH, self.__set, 'set.js'), # noqa
+            default_storage.url(os.path.join(settings.STATIC_URL, 'django_markdown', 'jquery.init.js')),
+            default_storage.url(os.path.join(settings.STATIC_URL, 'django_markdown', 'jquery.markitup.js')),
+            default_storage.url(os.path.join(settings.STATIC_URL, settings.MARKDOWN_SET_PATH, self.__set, 'set.js'))
         )
         css = {
             'screen': (
-                posixpath.join(settings.STATIC_URL, 'django_markdown', 'skins', self.__skin, 'style.css'), # noqa
-                posixpath.join(settings.STATIC_URL, settings.MARKDOWN_SET_PATH, self.__set, 'style.css'), # noqa
+                default_storage.url(os.path.join(settings.STATIC_URL, 'django_markdown', 'skins', self.__skin, 'style.css')),
+                default_storage.url(os.path.join(settings.STATIC_URL, settings.MARKDOWN_SET_PATH, self.__set, 'style.css'))
             )
         }
         return forms.Media(css=css, js=js)
