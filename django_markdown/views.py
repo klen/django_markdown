@@ -1,4 +1,5 @@
 """ Supports preview. """
+from django.core.files.storage import default_storage
 from django.shortcuts import render
 
 from . import settings
@@ -19,5 +20,5 @@ def preview(request):
     return render(
         request, settings.MARKDOWN_PREVIEW_TEMPLATE, dict(
             content=request.REQUEST.get('data', 'No content posted'),
-            css=settings.STATIC_URL + settings.MARKDOWN_STYLE,
+            css=default_storage.url(settings.MARKDOWN_STYLE)
         ))
