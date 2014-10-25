@@ -69,11 +69,19 @@ Setup
 Use django_markdown
 ===================
 
+#) Models: ::
+    
+    from django_markdown.models import MarkdownField
+    class MyModel(models.Model):
+        content = MarkdownField()
+
 #) Custom forms: ::
 
+    from django_markdown.fields import MarkdownFormField
     from django_markdown.widgets import MarkdownWidget
     class MyCustomForm(forms.Form):
         content = forms.CharField(widget=MarkdownWidget())
+        content2 = MarkdownFormField()
 
 #) Custom admins: ::
 
