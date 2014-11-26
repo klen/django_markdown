@@ -1,4 +1,5 @@
 # -*- coding: utf-8 -*-
+
 from __future__ import with_statement
 
 __author__ = 'Juho Vepsäläinen'
@@ -11,10 +12,16 @@ import os
 
 
 def convert(source, to, format=None, extra_args=(), encoding='utf-8'):
-    '''Converts given `source` from `format` `to` another. `source` may be either a file path or a string to be converted. It's possible to pass `extra_args` if needed. In case `format` is not provided, it will try to invert the format based on given `source`.
+    """Convert given `source` from `format` `to` another.
 
-    Raises OSError if pandoc is not found! Make sure it has been installed and is available at path.
-    '''
+    `source` may be either a file path or a string to be converted. It's possible to pass
+    `extra_args` if needed. In case `format` is not provided, it will try to invert the format
+    based on given `source`.
+
+    Raises OSError if pandoc is not found! Make sure it has been installed and is available at
+    path.
+
+    """
     return _convert(_read_file, _process_file, source, to, format, extra_args, encoding=encoding)
 
 
@@ -37,7 +44,9 @@ def _convert(reader, processor, source, to, format=None, extra_args=(), encoding
     from_formats, to_formats = get_pandoc_formats()
 
     if format not in from_formats:
-        raise RuntimeError('Invalid input format! Expected one of these: ' + ', '.join(from_formats))
+        raise RuntimeError(
+            'Invalid input format! Expected one of these: ' +
+            ', '.join(from_formats))
 
     if to not in to_formats:
         raise RuntimeError('Invalid to format! Expected one of these: ' + ', '.join(to_formats))
@@ -68,10 +77,10 @@ def _process_file(source, to, format, extra_args):
 
 
 def get_pandoc_formats():
-    '''
-    Dynamic preprocessor for Pandoc formats.
+    """ Dynamic preprocessor for Pandoc formats.
+
     Return 2 lists. "from_formats" and "to_formats".
-    '''
+    """
     try:
         p = subprocess.Popen(
             ['pandoc', '-h'],
