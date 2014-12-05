@@ -17,5 +17,4 @@ MARKDOWN_PREVIEW_TEMPLATE = getattr(settings, 'MARKDOWN_PREVIEW_TEMPLATE', 'djan
 MARKDOWN_STYLE = getattr(settings, 'MARKDOWN_STYLE', 'django_markdown/preview.css')
 MARKDOWN_PROTECT_PREVIEW = getattr(settings, 'MARKDOWN_PROTECT_PREVIEW', False)
 
-STATIC_URL = settings.STATIC_URL or settings.MEDIA_URL
 LOGIN_URL = settings.LOGIN_URL
