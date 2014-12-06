@@ -36,8 +36,10 @@ if not settings.configured:
 # ------
 from django.db import models
 
+from django_markdown.models import MarkdownField
+
 class Test(models.Model):
-    content = models.TextField()
+    content = MarkdownField()
 
     class Meta:
         app_label = 'test'

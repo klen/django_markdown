@@ -91,6 +91,13 @@ Use django_markdown
     from django_markdown.admin import MarkdownModelAdmin
     admin.site.register(MyModel, MarkdownModelAdmin)
 
+#) Admin Overrides: (If you don't want to subclass package ModelAdmin's) ::
+
+    from django.contrib import admin
+
+    class YourModelAdmin(admin.ModelAdmin):
+        formfield_overrides = {MarkdownField: {'widget': AdminMarkdownWidget}}
+
 #) Flatpages: ::
 
     # in your project main urls
@@ -172,7 +179,7 @@ Contributors
 
 * klen_ (Kirill Klenov)
 
-* yavorskiy_ (Sergii Iavorskyi) 
+* yavorskiy_ (Sergii Iavorskyi)
 
 
 License
