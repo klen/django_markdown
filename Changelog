@@ -1,4 +1,5 @@
 2014-12-04  wldcordeiro
+
 	* Removed static_url setting from package settings due to collision with user setting.
 	* Modified the ModelAdmins to only override MarkdownFields since some users want normal Textfields to display normall.
 	* Version 0.8.1
