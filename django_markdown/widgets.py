@@ -24,9 +24,7 @@ class MarkdownWidget(forms.Textarea):
 
     """
 
-    def __init__(self, attrs=None, markdown_set_name=None, markdown_skin=None):
-        self.__set = markdown_set_name or settings.MARKDOWN_SET_NAME
-        self.__skin = markdown_skin or settings.MARKDOWN_EDITOR_SKIN
+    def __init__(self, attrs=None):
         super(MarkdownWidget, self).__init__(attrs)
 
     def render(self, name, value, attrs=None):
@@ -43,15 +41,15 @@ class MarkdownWidget(forms.Textarea):
     class Media:
         css = {
             'screen': (
-                os.path.join('django_markdown', 'skins', self.__skin, 'style.css'),
-                os.path.join(settings.MARKDOWN_SET_PATH, self.__set, 'style.css')
+                os.path.join('django_markdown', 'skins', settings.MARKDOWN_EDITOR_SKIN, 'style.css'),
+                os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'style.css')
             )
         }
 
         js = (
             os.path.join('django_markdown', 'jquery.init.js'),
             os.path.join('django_markdown', 'jquery.markitup.js'),
-            os.path.join(settings.MARKDOWN_SET_PATH, self.__set, 'set.js')
+            os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'set.js')
         )
 
 
