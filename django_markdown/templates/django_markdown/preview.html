@@ -1,4 +1,4 @@
-{% load django_markdown %}
+{% load django_markdown_static %}
 
 <!DOCTYPE html>
 <html>
@@ -6,7 +6,7 @@
 <base target="_blank">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>markItUp! preview</title>
-<link rel="stylesheet" type="text/css" href="{{ css }}" />
+<link rel="stylesheet" type="text/css" href="{% static css %}" />
 </head>
 <body>
 {{ content|markdown }}
