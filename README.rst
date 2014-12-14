@@ -40,7 +40,7 @@ Requirements
 ============
 
 - python >= 2.7
-- django >= 1.5
+- django >= 1.6
 - markdown
 
 
