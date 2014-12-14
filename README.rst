@@ -1,5 +1,5 @@
-django-markdown
-###############
+Django-Markdown v. 0.8.1
+########################
 
 .. _description:
 
