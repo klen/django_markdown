@@ -1,7 +1,4 @@
-BUILDDIR=_build
 MODULE=django_markdown
-SPHINXBUILD=sphinx-build
-ALLSPHINXOPTS= -d $(BUILDDIR)/doctrees $(PAPEROPT_$(PAPER)) $(SPHINXOPTS) .
 VIRTUALENV=$(shell echo "$${VDIR:-'.env'}")
 
 all: $(VIRTUALENV)
@@ -15,9 +12,9 @@ help:
 # target: clean - Clean repo
 clean:
 	@rm -rf build dist docs/_build
-	find $(CURDIR)/$(MODULE) -name "*.pyc" -delete
-	find $(CURDIR)/$(MODULE) -name "*.orig" -delete
-	find $(CURDIR)/$(MODULE) -name "__pycache__" -delete
+	find $(CURDIR) -name "*.pyc" -delete
+	find $(CURDIR) -name "*.orig" -delete
+	find $(CURDIR) -name "__pycache__" | xargs rm -rf
 
 
 # ==============
@@ -79,13 +76,17 @@ docs:
 
 $(VIRTUALENV): requirements.txt
 	[ -d $(VIRTUALENV) ] || @virtualenv --no-site-packages $(VIRTUALENV)
-	@$(VIRTUALENV)/bin/pip install -M -r requirements.txt
+	@$(VIRTUALENV)/bin/pip install -r requirements.txt
 	touch $(VIRTUALENV)
+
+$(VIRTUALENV)/bin/py.test: requirements-tests.txt $(VIRTUALENV)
+	@$(VIRTUALENV)/bin/pip install -r requirements-tests.txt
+	touch $(VIRTUALENV)/bin/py.test
 
 .PHONY: t
 # target: t - Runs tests
-t: clean
-	$(VIRTUALENV)/bin/python setup.py test
+t: clean $(VIRTUALENV)/bin/py.test
+	@$(VIRTUALENV)/bin/py.test
 
 $(CURDIR)/example/db.sqlite3: $(VIRTUALENV)
 	$(VIRTUALENV)/bin/python example/manage.py syncdb --noinput

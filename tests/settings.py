@@ -7,6 +7,7 @@ TMPDIR = tempfile.mkdtemp()
 ROOT_URLCONF = 'tests.urls'
 
 SECRET_KEY = 'KeepMeSecret'
+STATIC_URL = '/static/'
 
 DEBUG = True
 

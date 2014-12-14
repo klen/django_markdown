@@ -57,8 +57,6 @@ setup(
     package_data={'': PACKAGE_DATA, },
 
     install_requires=install_requires,
-    tests_require=install_requires,
-    test_suite='tests',
 )
 
 # pylama:ignore=C0111
