@@ -20,5 +20,5 @@ def preview(request):
     return render(
         request, settings.MARKDOWN_PREVIEW_TEMPLATE, dict(
             content=request.REQUEST.get('data', 'No content posted'),
-            css=default_storage.url(settings.MARKDOWN_STYLE)
+            css=settings.MARKDOWN_STYLE
         ))

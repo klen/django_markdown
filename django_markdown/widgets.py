@@ -24,30 +24,8 @@ class MarkdownWidget(forms.Textarea):
 
     """
 
-    def __init__(self, attrs=None, markdown_set_name=None, markdown_skin=None):
-        self.__set = markdown_set_name or settings.MARKDOWN_SET_NAME
-        self.__skin = markdown_skin or settings.MARKDOWN_EDITOR_SKIN
+    def __init__(self, attrs=None):
         super(MarkdownWidget, self).__init__(attrs)
-
-    @property
-    def media(self):
-        """ Prepare media files.
-
-        :returns: form's media
-
-        """
-        js = (
-            default_storage.url(os.path.join('django_markdown', 'jquery.init.js')),
-            default_storage.url(os.path.join('django_markdown', 'jquery.markitup.js')),
-            default_storage.url(os.path.join(settings.MARKDOWN_SET_PATH, self.__set, 'set.js'))
-        )
-        css = {
-            'screen': (
-                default_storage.url(os.path.join('django_markdown', 'skins', self.__skin, 'style.css')),
-                default_storage.url(os.path.join(settings.MARKDOWN_SET_PATH, self.__set, 'style.css'))
-            )
-        }
-        return forms.Media(css=css, js=js)
 
     def render(self, name, value, attrs=None):
         """ Render widget.
@@ -59,6 +37,20 @@ class MarkdownWidget(forms.Textarea):
         attrs = self.build_attrs(attrs)
         html += editor_js_initialization("#%s" % attrs['id'])
         return mark_safe(html)
+
+    class Media:
+        css = {
+            'screen': (
+                os.path.join('django_markdown', 'skins', settings.MARKDOWN_EDITOR_SKIN, 'style.css'),
+                os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'style.css')
+            )
+        }
+
+        js = (
+            os.path.join('django_markdown', 'jquery.init.js'),
+            os.path.join('django_markdown', 'jquery.markitup.js'),
+            os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'set.js')
+        )
 
 
 class AdminMarkdownWidget(MarkdownWidget, AdminTextareaWidget):
