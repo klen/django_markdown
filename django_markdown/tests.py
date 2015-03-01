@@ -40,6 +40,7 @@ class DjangoMarkdownViewsTest(TestCase):
 
         response = self.client.get('/markdown/preview/')
 
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, 'No content posted')
         self.assertContains(response, 'preview.css')
 
@@ -47,6 +48,7 @@ class DjangoMarkdownViewsTest(TestCase):
 
         response = self.client.get('/markdown/preview/', data=self.data)
 
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<h1>header</h1>')
 
     def test_preview_post_markdown_request(self):
@@ -55,6 +57,7 @@ class DjangoMarkdownViewsTest(TestCase):
 
         response = self.client.post('/markdown/preview/', data=self.data)
 
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<h1>header</h1>')
 
     def test_preview_MARKDOWN_PROTECT_PREVIEW(self):
@@ -84,4 +87,5 @@ class DjangoMarkdownViewsTest(TestCase):
 
         response = self.client.get('/markdown/preview/', data=self.data)
 
+        self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<h1>header</h1>')
