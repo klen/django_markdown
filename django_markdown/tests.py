@@ -29,7 +29,6 @@ class DjangoMarkdownUtilsTest(TestCase):
         self.assertEqual(html, expected)
 
 
-# TODO status code check
 class DjangoMarkdownViewsTest(TestCase):
 
     def setUp(self):
