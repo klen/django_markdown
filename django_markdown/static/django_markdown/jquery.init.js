@@ -35,4 +35,12 @@ jQuery = jQuery || django.jQuery;
         }
     });
 
- })(jQuery);
+    $(document).ready(function() {
+        var extra_settings = (extra_markitup_settings === undefined) ? {} : extra_markitup_settings;
+
+        $("[data-widget='markItUpEditor']")
+            .markItUp(mySettings, extra_settings)
+            .removeData('data-widget');
+    });
+
+})(jQuery);
