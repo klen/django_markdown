@@ -1,4 +1,9 @@
+2015-10-04 Nathan Gaberel
+
+	* Use staticfiles_storage to generate static files urls for widgets.
+
 2014-12-08  wldcordeiro
+
 	* Fixing the static loading issue properly.
 	* version 0.8.2
 

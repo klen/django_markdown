@@ -3,7 +3,7 @@ import os
 
 from django import forms
 from django.contrib.admin.widgets import AdminTextareaWidget
-from django.core.files.storage import default_storage
+from django.contrib.staticfiles.storage import staticfiles_storage
 from django.utils.safestring import mark_safe
 
 from . import settings
@@ -41,17 +41,16 @@ class MarkdownWidget(forms.Textarea):
     class Media:
         css = {
             'screen': (
-                os.path.join('django_markdown', 'skins', settings.MARKDOWN_EDITOR_SKIN, 'style.css'),
-                os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'style.css')
+                staticfiles_storage.url(os.path.join('django_markdown', 'skins', settings.MARKDOWN_EDITOR_SKIN, 'style.css')),
+                staticfiles_storage.url(os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'style.css'))
             )
         }
 
         js = (
-            os.path.join('django_markdown', 'jquery.init.js'),
-            os.path.join('django_markdown', 'jquery.markitup.js'),
-            os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'set.js')
+            staticfiles_storage.url(os.path.join('django_markdown', 'jquery.init.js')),
+            staticfiles_storage.url(os.path.join('django_markdown', 'jquery.markitup.js')),
+            staticfiles_storage.url(os.path.join(settings.MARKDOWN_SET_PATH, settings.MARKDOWN_SET_NAME, 'set.js'))
         )
-
 
 class AdminMarkdownWidget(MarkdownWidget, AdminTextareaWidget):
 
