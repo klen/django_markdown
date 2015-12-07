@@ -5,4 +5,4 @@ from django.conf.urls import url
 from .views import preview
 
 urlpatterns = [
-    url('preview/$', preview, name='django_markdown_preview')]
+    url(r'^preview/$', preview, name='django_markdown_preview')]
