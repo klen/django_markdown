@@ -1,6 +1,5 @@
-from django.conf.urls import include, patterns
+from django.conf.urls import include, url
 
-urlpatterns = patterns(
-    '',
-    (r'^markdown/', include('django_markdown.urls')),
-)
+urlpatterns = [
+    url(r'^markdown/', include('django_markdown.urls')),
+]
