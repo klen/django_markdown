@@ -1,5 +1,5 @@
 [report]
-source=django_markdown
+include = django_markdown
 
 [run]
 source=django_markdown
