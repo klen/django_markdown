@@ -5,9 +5,8 @@ python:
 - "3.4"
 
 env:
-- TOXENV=py27-d16
-- TOXENV=py27-d17
-- TOXENV=py34-d17
+- TOXENV=d16
+- TOXENV=d17
 - TOXENV=cov
 
 install: pip install --quiet --use-mirrors tox
