@@ -1,6 +1,2 @@
-[report]
-include = django_markdown
-ignore_errors = True
-
 [run]
 source=django_markdown
