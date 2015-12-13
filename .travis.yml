@@ -11,8 +11,7 @@ env:
 
 branches:
     only:
-    - master
-    - develop
+    - nocarryr-develop
 
 install: pip install --quiet --use-mirrors tox
 
