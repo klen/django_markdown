@@ -1,5 +1,3 @@
 [run]
 source=django_markdown
 
-[report]
-include=django_markdown
