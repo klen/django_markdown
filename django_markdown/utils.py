@@ -3,7 +3,7 @@ from django.core.urlresolvers import reverse
 import markdown as markdown_module
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
-from django.template import loader, Context
+from django.template import loader
 
 try:
     import json as simplejson
