@@ -41,7 +41,6 @@ def editor_js_initialization(selector, **extra_settings):
         previewParserPath=reverse('django_markdown_preview'),
         **settings.MARKDOWN_EDITOR_SETTINGS)
     options.update(extra_settings)
-    ctx = Context(dict(
-        selector=selector, extra_settings=simplejson.dumps(options)),
-        autoescape=False)
+    ctx = dict(selector=selector,
+               extra_settings=mark_safe(simplejson.dumps(options)))
     return INIT_TEMPLATE.render(ctx)
