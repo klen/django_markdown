@@ -89,7 +89,7 @@ t: clean $(VIRTUALENV)/bin/py.test
 	@$(VIRTUALENV)/bin/py.test
 
 $(CURDIR)/example/db.sqlite3: $(VIRTUALENV)
-	$(VIRTUALENV)/bin/python example/manage.py syncdb --noinput
+	$(VIRTUALENV)/bin/python example/manage.py migrate --noinput
 
 .PHONY: run
 run: $(CURDIR)/example/db.sqlite3
