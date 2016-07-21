@@ -45,7 +45,7 @@ class DjangoMarkdownViewsTest(TestCase):
 
     def test_preview_get_markdown_request(self):
 
-        response = self.client.get('/markdown/preview/', data=self.data)
+        response = self.client.post('/markdown/preview/', data=self.data)
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<h1>header</h1>')
@@ -84,7 +84,7 @@ class DjangoMarkdownViewsTest(TestCase):
 
         self.client.login(username=username, password=password)
 
-        response = self.client.get('/markdown/preview/', data=self.data)
+        response = self.client.post('/markdown/preview/', data=self.data)
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<h1>header</h1>')
