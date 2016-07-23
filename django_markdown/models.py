@@ -1,6 +1,5 @@
 from django.db import models
 from .fields import MarkdownFormField
-from .widgets import MarkdownWidget
 
 
 class MarkdownField(models.TextField):
