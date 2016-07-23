@@ -1,7 +1,6 @@
 """ Support Django admin. """
 
 from django.contrib import admin
-from django.db import models
 
 from django_markdown.widgets import AdminMarkdownWidget
 from django_markdown.models import MarkdownField
