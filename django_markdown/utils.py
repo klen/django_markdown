@@ -1,9 +1,12 @@
 """ Markdown utils. """
-from django.core.urlresolvers import reverse
 import markdown as markdown_module
+
+from django.core.urlresolvers import reverse
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
 from django.template import loader, Context
+
+from . import settings
 
 try:
     import json as simplejson
@@ -12,8 +15,6 @@ except ImportError:
         import simplejson
     except ImportError:
         from django.utils import simplejson
-
-from . import settings
 
 
 def markdown(value, extensions=settings.MARKDOWN_EXTENSIONS,
