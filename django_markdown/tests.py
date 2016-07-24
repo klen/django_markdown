@@ -1,8 +1,11 @@
-from django.test import TestCase
+from django import forms
 from django.contrib.auth.models import User
+from django.template import Context, Template
+from django.test import TestCase
 
 from django_markdown.utils import markdown as markdown_util
 from django_markdown.templatetags.django_markdown import markdown as markdown_tag
+from django_markdown.widgets import MarkdownWidget
 
 
 class DjangoMarkdownTagsTest(TestCase):
@@ -83,3 +86,18 @@ class DjangoMarkdownViewsTest(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertContains(response, '<h1>header</h1>')
+
+
+class DjangoMarkdownWidgetTest(TestCase):
+
+    def test_markdown_widget(self):
+        """test MarkdownWidget.render"""
+
+        form = forms.Form()
+        form.fields['test_field'] = forms.CharField(label='test', widget=MarkdownWidget)
+
+        template = Template('{% load django_markdown %}<html>{{ form }}</html>')
+        context = Context({'form': form})
+        html = template.render(context)
+
+        self.assertIn('"previewParserPath": "/markdown/preview/"', html)
