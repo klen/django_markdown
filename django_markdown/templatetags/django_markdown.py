@@ -3,8 +3,9 @@ import posixpath
 
 from django import template
 from django.core.urlresolvers import reverse
+from django.utils.safestring import mark_safe
 
-from ..utils import markdown as _markdown, settings, simplejson, mark_safe
+from ..utils import markdown as _markdown, settings, simplejson
 
 
 register = template.Library()

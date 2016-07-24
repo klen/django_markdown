@@ -2,9 +2,9 @@
 import markdown as markdown_module
 
 from django.core.urlresolvers import reverse
+from django.template import loader, Context
 from django.utils.encoding import force_text
 from django.utils.safestring import mark_safe
-from django.template import loader, Context
 
 from . import settings
 

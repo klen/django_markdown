@@ -1,11 +1,8 @@
 from django.test import TestCase
+from django.contrib.auth.models import User
+
 from django_markdown.utils import markdown as markdown_util
-
-from django_markdown.templatetags.django_markdown import (
-    markdown as markdown_tag
-)
-
-from django.contrib.auth import models
+from django_markdown.templatetags.django_markdown import markdown as markdown_tag
 
 
 class DjangoMarkdownTagsTest(TestCase):
@@ -52,8 +49,6 @@ class DjangoMarkdownViewsTest(TestCase):
 
     def test_preview_post_markdown_request(self):
 
-        data = {'data': "# header \n *test*"}
-
         response = self.client.post('/markdown/preview/', data=self.data)
 
         self.assertEqual(response.status_code, 200)
@@ -76,7 +71,7 @@ class DjangoMarkdownViewsTest(TestCase):
         username = 'test'
         password = 'test',
 
-        user = models.User.objects.create(
+        User.objects.create(
             username=username,
             password=password,
             is_staff=True
