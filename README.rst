@@ -61,7 +61,7 @@ Setup
 
 - Add 'django_markdown' to INSTALLED_APPS ::
 
-    INSTALLED_APPS += ( 'django_markdown', )
+    INSTALLED_APPS += ( 'django_markdown', 'django.contrib.markup', )
 
 
 - Add django_markdown urls to base urls ::
