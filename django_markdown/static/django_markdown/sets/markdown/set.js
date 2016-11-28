@@ -13,8 +13,8 @@
 mySettings = {
 	onShiftEnter:		{keepDefault:false, openWith:'\n\n'},
 	markupSet: [
-		{name:'First Level Heading', key:'1', placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '=') } },
-		{name:'Second Level Heading', key:'2', placeHolder:'Your title here...', closeWith:function(markItUp) { return miu.markdownTitle(markItUp, '-') } },
+		{name:'First Level Heading', key:'1', placeHolder:'Your title here...',  openWith:'# '},
+		{name:'Second Level Heading', key:'2', placeHolder:'Your title here...', openWith:'## '},
 		{name:'Heading 3', key:'3', openWith:'### ', placeHolder:'Your title here...' },
 		{name:'Heading 4', key:'4', openWith:'#### ', placeHolder:'Your title here...' },
 		{name:'Heading 5', key:'5', openWith:'##### ', placeHolder:'Your title here...' },
