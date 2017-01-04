@@ -4,7 +4,7 @@
         $("{{ selector }}").each(function (k, el) {
             var el = $(el);
             if(!el.hasClass("markItUpEditor")) el.markItUp(
-                mySettings, {{ extra_settings|default:"{}" }});
+                mySettings, {{ extra_settings|default:"{}"|safe }});
         });
     });
 })(jQuery);
