@@ -24,17 +24,19 @@ class MarkdownWidget(forms.Textarea):
 
     """
 
-    def __init__(self, attrs=None):
-        super(MarkdownWidget, self).__init__(attrs)
-
     def render(self, name, value, attrs=None):
         """ Render widget.
 
         :returns: A rendered HTML
 
         """
-        html = super(MarkdownWidget, self).render(name, value, attrs)
-        attrs = self.build_attrs(attrs)
+
+        final_attrs = {'data-widget': 'markItUpEditor'}
+        if attrs is not None:
+            final_attrs.update(attrs)
+
+        html = super(MarkdownWidget, self).render(name, value, final_attrs)
+        final_attrs = self.build_attrs(final_attrs)
         html += editor_js_initialization("#%s" % attrs['id'])
         return mark_safe(html)
 
