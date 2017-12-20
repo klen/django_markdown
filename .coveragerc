@@ -1,5 +1,5 @@
-[report]
+[run]
 source=django_markdown
 
-[run]
+[report]
 source=django_markdown
