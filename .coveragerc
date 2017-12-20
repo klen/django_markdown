@@ -1,5 +1,11 @@
-[report]
+[run]
+branch=True
 source=django_markdown
 
-[run]
-source=django_markdown
+[report]
+precision = 2
+omit = *migrations*
+ignore_errors = True
+
+[html]
+directory = coverage_html_report
