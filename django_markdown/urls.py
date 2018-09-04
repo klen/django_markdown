@@ -1,6 +1,6 @@
 """ Define preview URL. """
 
-from django.conf.urls import patterns, url
+from django.conf.urls import *
 
 from .views import preview
 
