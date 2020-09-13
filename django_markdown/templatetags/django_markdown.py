@@ -2,7 +2,7 @@
 import posixpath
 
 from django import template
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
 from ..utils import markdown as _markdown, settings, simplejson, mark_safe
 
