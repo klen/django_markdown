@@ -3,9 +3,9 @@ from django.template import Library
 
 register = Library()
 
-if 'django.contrib.staticfiles' in settings.INSTALLED_APPS:
+try:
     from django.contrib.staticfiles.templatetags.staticfiles import static as _static
-else:
+except:
     from django.templatetags.static import static as _static
 
 

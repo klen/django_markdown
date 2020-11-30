@@ -27,7 +27,7 @@ class MarkdownWidget(forms.Textarea):
     def __init__(self, attrs=None):
         super(MarkdownWidget, self).__init__(attrs)
 
-    def render(self, name, value, attrs=None):
+    def render(self, name, value, attrs=None, renderer=None):
         """ Render widget.
 
         :returns: A rendered HTML
