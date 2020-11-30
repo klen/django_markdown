@@ -39,8 +39,8 @@ Documentaton available at pypi_ or github_.
 Requirements
 ============
 
-- python >= 2.7
-- django >= 1.6
+- python >= 3.6
+- django >= 1.8
 - markdown
 
 
@@ -61,12 +61,12 @@ Setup
 
 - Add 'django_markdown' to INSTALLED_APPS ::
 
-    INSTALLED_APPS += ( 'django_markdown', )
+    'django_markdown',
 
 
 - Add django_markdown urls to base urls ::
 
-    url('^markdown/', include( 'django_markdown.urls')),
+    re_path('^markdown/', include( 'django_markdown.urls')),
 
 
 Use django_markdown
@@ -180,6 +180,8 @@ Contributors
 * klen_ (Kirill Klenov)
 
 * yavorskiy_ (Sergii Iavorskyi)
+
+* Deesh_ (Jagadeeswara_Reddy_p)
 
 
 License
