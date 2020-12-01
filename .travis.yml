@@ -2,14 +2,9 @@ language: python
 
 python:
 - "3.6"
-
-env:
-- TOXENV=py27-d16
-- TOXENV=py27-d17
-- TOXENV=py34-d17
-- TOXENV=py36-d17
-- TOXENV=py38-d17
-- TOXENV=cov
+- "3.7"
+- "3.8"
+- "3.9"
 
 branches:
     only:

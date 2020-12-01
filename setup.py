@@ -22,6 +22,7 @@ def _read(fname):
     except IOError:
         return ''
 
+
 _meta = _read('django_markdown/__init__.py')
 _license = re.search(r'^__license__\s*=\s*"(.*)"', _meta, re.M).group(1)
 _project = re.search(r'^__project__\s*=\s*"(.*)"', _meta, re.M).group(1)
@@ -37,15 +38,14 @@ setup(
     long_description=_read('README.rst'),
     license=_license,
 
-    author="Kirill Klenov",
-    author_email="horneds@gmail.com",
-    url="https://github.com/klen/django_markdown",
+    author="Deesh Reddy",
+    author_email="internetwasmyidea@gmail.com",
+    url="https://github.com/been-there-done-that/django_markdown",
 
     keywords='html markdown django',
     classifiers=[
         'Development Status :: 5 - Production/Stable',
         'Intended Audience :: Developers',
-        'Natural Language :: Russian',
         'Natural Language :: English',
         'License :: OSI Approved :: GNU Library or Lesser General Public License (LGPL)', # noqa
         'Programming Language :: Python',
