@@ -1,12 +1,7 @@
-from django.conf import settings
-from django.template import Library
+from django import template
+from django.templatetags.static import static as _static
 
-register = Library()
-
-try:
-    from django.contrib.staticfiles.templatetags.staticfiles import static as _static
-except:
-    from django.templatetags.static import static as _static
+register = template.Library()
 
 
 @register.simple_tag

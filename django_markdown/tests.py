@@ -1,7 +1,8 @@
 from django.test import TestCase
-from django_markdown.utils import markdown as markdown_util
-
-from django_markdown.templatetags.django_markdown import (
+from .utils import (
+    markdown as markdown_util
+)
+from .templatetags.django_markdown import (
     markdown as markdown_tag
 )
 

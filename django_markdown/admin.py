@@ -1,21 +1,30 @@
 """ Support Django admin. """
 
-from django.contrib import admin
-from django.db import models
+from django.contrib.admin import (
+    ModelAdmin, StackedInline
+)
 
-from django_markdown.widgets import AdminMarkdownWidget
-from django_markdown.models import MarkdownField
+from .widgets import AdminMarkdownWidget
+from .models import MarkdownField
 
 
-class MarkdownModelAdmin(admin.ModelAdmin):
+class MarkdownModelAdmin(ModelAdmin):
 
     """ Support markdown as ModelAdmin. """
 
-    formfield_overrides = {MarkdownField: {'widget': AdminMarkdownWidget}}
+    formfield_overrides = {
+        MarkdownField: {
+            'widget': AdminMarkdownWidget
+        }
+    }
 
 
-class MarkdownInlineAdmin(admin.StackedInline):
+class MarkdownInlineAdmin(StackedInline):
 
     """ Support markdown as StackedInline. """
 
-    formfield_overrides = {MarkdownField: {'widget': AdminMarkdownWidget}}
+    formfield_overrides = {
+        MarkdownField: {
+            'widget': AdminMarkdownWidget
+        }
+    }
