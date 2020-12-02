@@ -9,8 +9,8 @@ Documentaton available at pypi_ or github_.
 Requirements
 ============
 
-- python >= 2.5
-- django >= 1.2
+- python >= 3.5
+- django >= 1.8
 - markdown
 
 
@@ -19,7 +19,7 @@ Installation
 
 **Django markdown** should be installed using pip: ::
 
-    pip install django-markdown
+    pip install django-markdown-2
 
 
 Setup
@@ -27,12 +27,12 @@ Setup
 
 - Add 'django_markdown' to INSTALLED_APPS ::
 
-    INSTALLED_APPS += ( 'django_markdown', )
+    'django_markdown',
 
 
 - Add django_markdown urls to base urls ::
 
-    url('^markdown/', include( 'django_markdown.urls')),
+    re_path('^markdown/', include( 'django_markdown.urls')),
 
 
 Use django_markdown
@@ -41,12 +41,14 @@ Use django_markdown
 #) Custom forms: ::
 
     from django_markdown.widgets import MarkdownWidget
+
     class MyCustomForm(forms.Form):
         content = forms.CharField( widget=MarkdownWidget() )
 
 #) Custom admins: ::
 
     from django_markdown.admin import MarkdownModelAdmin
+
     adimin.site.register(MyModel, MarkdownModelAdmin)
 
 #) Flatpages: ::
@@ -54,10 +56,12 @@ Use django_markdown
     # in your project main urls
     from django_markdown import flatpages
     ...
+
     # Django admin
     admin.autodiscover()
     flatpages.register()
-    urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
+
+    urlpatterns += [ re_path(r'^admin/', include(admin.site.urls)), ]
 
 #) JavaScript API: ::
 
@@ -105,7 +109,7 @@ Changes
 
 Make sure you`ve read the following document if you are upgrading from previous versions:
 
-http://packages.python.org/django-markdown/changes.html
+http://packages.python.org/django-markdown-2/changes.html
 
 
 Bug tracker
@@ -113,22 +117,19 @@ Bug tracker
 
 If you have any suggestions, bug reports or
 annoyances please report them to the issue tracker
-at https://github.com/klen/django_markdown/issues
+at https://github.com/been-there-done-that/django_markdown/issues
 
 
 Contributing
 ============
 
-Development of django-markdown happens at github: https://github.com/klen/django_markdown
+Development of django-markdown happens at github: https://github.com/been-there-done-that/django_markdown
 
 
 Contributors
 =============
 
-* klen_ (Kirill Klenov)
-
-* yavorskiy_ (Sergii Iavorskyi) 
-
+* Deesh_ (Jagadeeswara_Reddy_p)
 
 License
 =======
@@ -139,7 +140,7 @@ Licensed under a `GNU lesser general public license`_.
 Copyright
 =========
 
-Copyright (c) 2011 Kirill Klenov (horneds@gmail.com)
+Copyright (c) 2021 Deesh Reddy (internetwasmyidea@gmail.com)
 
 Markitup_:
     (c) 2008 Jay Salvat
@@ -147,8 +148,7 @@ Markitup_:
     
 
 .. _GNU lesser general public license: http://www.gnu.org/copyleft/lesser.html
-.. _pypi: http://packages.python.org/django-markdown/
+.. _pypi: http://packages.python.org/django-markdown-2/
 .. _Markitup: http://markitup.jaysalvat.com/ 
-.. _github: https://github.com/klen/django_markdown
-.. _klen: https://github.com/klen
-.. _yavorskiy: https://github.com/yavorskiy
+.. _github: https://github.com/been-there-done-that/django_markdown
+.. _Deesh: https://github.com/been-there-done-that

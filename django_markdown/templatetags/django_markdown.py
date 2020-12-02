@@ -2,9 +2,11 @@
 import posixpath
 
 from django import template
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 
-from ..utils import markdown as _markdown, settings, simplejson, mark_safe
+from django_markdown.utils import (
+    markdown as _markdown, settings, simplejson, mark_safe
+)
 
 
 register = template.Library()
@@ -53,9 +55,14 @@ def markdown_editor(selector):
 
     """
     return dict(
-        selector=selector,
-        extra_settings=mark_safe(simplejson.dumps(
-            dict(previewParserPath=reverse('django_markdown_preview')))))
+        selector=selector, extra_settings=mark_safe(
+            simplejson.dumps(
+                dict(
+                    previewParserPath=reverse('django_markdown_preview')
+                )
+            )
+        )
+    )
 
 
 @register.inclusion_tag('django_markdown/media_all.html')

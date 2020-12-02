@@ -1,25 +1,27 @@
 language: python
 
 python:
-- "2.7"
+- "3.6"
+
 
 env:
-- TOXENV=py27-d16
-- TOXENV=py27-d17
-- TOXENV=py34-d17
-- TOXENV=cov
+    - DJANGO_VERSION=1.8.0
+    - DJANGO_VERSION=2.2.6
+    - DJANGO_VERSION=3.0.0
 
 branches:
     only:
     - master
     - develop
 
-install: pip install --quiet --use-mirrors tox
+install:
+    - pip install --quiet tox
+    - pip install -q Django==$DJANGO_VERSION
 
 script: tox
 
 after_script:
 - if [ $TOXENV == "cov" ]; then
-    pip install --quiet --use-mirrors coveralls;
+    pip install --quiet coveralls;
     coveralls;
   fi

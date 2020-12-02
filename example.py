@@ -1,9 +1,9 @@
-#!/usr/bin/env python
-# coding: utf-8
 import os
 
 from django.core.management import call_command
-from django.conf.urls import patterns, include
+from django.urls import (
+    include, path, re_path
+)
 from django.conf import settings
 from django.http import HttpResponse
 
@@ -14,9 +14,9 @@ os.environ.setdefault("DJANGO_SETTINGS_MODULE", MODULE)
 
 # Settings
 # --------
-DEBUG=True,
-ROOT_URLCONF=MODULE
-SECRET_KEY='secret'
+DEBUG = True,
+ROOT_URLCONF = MODULE
+SECRET_KEY = 'secret'
 INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.messages',
@@ -38,6 +38,7 @@ from django.db import models
 
 from django_markdown.models import MarkdownField
 
+
 class Test(models.Model):
     content = MarkdownField()
 
@@ -47,19 +48,23 @@ class Test(models.Model):
 
 # Views
 # -----
+
 def home(request):
     return HttpResponse('OK')
 
 
 # Urls
 # ----
+
 from django.contrib import admin
+from .views import home
+
 admin.autodiscover()
-urlpatterns = patterns(
-    '',
+
+urlpatterns = [
     ('^$', home),
     ('^admin/', include(admin.site.urls)),
-)
+]
 
 
 if __name__ == '__main__':

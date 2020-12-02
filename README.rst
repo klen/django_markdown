@@ -1,4 +1,4 @@
-Django-Markdown v. 0.8.4
+Django-Markdown v. 2.0.0
 ########################
 
 .. _description:
@@ -9,7 +9,7 @@ Documentaton available at pypi_ or github_.
 .. _badges:
 
 .. image:: http://img.shields.io/travis/klen/django_markdown.svg?style=flat-square
-    :target: http://travis-ci.org/klen/django_markdown
+    :target: https://travis-ci.org/github/been-there-done-that
     :alt: Build Status
 
 .. image:: http://img.shields.io/coveralls/klen/django_markdown.svg?style=flat-square
@@ -17,15 +17,15 @@ Documentaton available at pypi_ or github_.
     :alt: Coverals
 
 .. image:: http://img.shields.io/pypi/v/django_markdown.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/django_markdown
+    :target: https://pypi.python.org/pypi/django_markdown-2
     :alt: Version
 
 .. image:: http://img.shields.io/pypi/dm/django_markdown.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/django_markdown
+    :target: https://pypi.python.org/pypi/django_markdown-2
     :alt: Downloads
 
 .. image:: http://img.shields.io/pypi/l/django_markdown.svg?style=flat-square
-    :target: https://pypi.python.org/pypi/django_markdown
+    :target: https://pypi.python.org/pypi/django_markdown-2
     :alt: License
 
 .. image:: http://img.shields.io/gratipay/klen.svg?style=flat-square
@@ -39,8 +39,8 @@ Documentaton available at pypi_ or github_.
 Requirements
 ============
 
-- python >= 2.7
-- django >= 1.6
+- python >= 3.6
+- django >= 1.8
 - markdown
 
 
@@ -61,12 +61,12 @@ Setup
 
 - Add 'django_markdown' to INSTALLED_APPS ::
 
-    INSTALLED_APPS += ( 'django_markdown', )
+    'django_markdown',
 
 
 - Add django_markdown urls to base urls ::
 
-    url('^markdown/', include( 'django_markdown.urls')),
+    re_path('^markdown/', include( 'django_markdown.urls')),
 
 
 Use django_markdown
@@ -103,10 +103,12 @@ Use django_markdown
     # in your project main urls
     from django_markdown import flatpages
     ...
+
     # Django admin
     admin.autodiscover()
     flatpages.register()
-    urlpatterns += [ url(r'^admin/', include(admin.site.urls)), ]
+
+    urlpatterns += [ re_path(r'^admin/', include(admin.site.urls)), ]
 
 #) Template tags: ::
 
@@ -157,7 +159,7 @@ Changes
 
 Make sure you`ve read the following document if you are upgrading from previous versions:
 
-http://packages.python.org/django-markdown/changes.html
+http://packages.python.org/django-markdown-2/changes.html
 
 
 Bug tracker
@@ -165,22 +167,19 @@ Bug tracker
 
 If you have any suggestions, bug reports or
 annoyances please report them to the issue tracker
-at https://github.com/klen/django_markdown/issues
+at https://github.com/been-there-done-that/django_markdown-2/issues
 
 
 Contributing
 ============
 
-Development of django-markdown happens at github: https://github.com/klen/django_markdown
+Development of django-markdown happens at github: https://github.com/been-there-done-that/django_markdown-2
 
 
 Contributors
 =============
 
-* klen_ (Kirill Klenov)
-
-* yavorskiy_ (Sergii Iavorskyi)
-
+* Deesh_ (Jagadeeswara_Reddy_p)
 
 License
 =======
@@ -191,16 +190,15 @@ Licensed under a `GNU lesser general public license`_.
 Copyright
 =========
 
-Copyright (c) 2011 Kirill Klenov (horneds@gmail.com)
+Copyright (c) 2021 Deesh Reddy (internetwasmyidea@gmail.com)
 
 Markitup_:
     (c) 2008 Jay Salvat
-    http://markitup.jaysalvat.com/ 
-    
+    http://markitup.jaysalvat.com/
+
 
 .. _GNU lesser general public license: http://www.gnu.org/copyleft/lesser.html
-.. _pypi: http://packages.python.org/django-markdown/
-.. _Markitup: http://markitup.jaysalvat.com/ 
-.. _github: https://github.com/klen/django_markdown
-.. _klen: https://github.com/klen
-.. _yavorskiy: https://github.com/yavorskiy
+.. _pypi: http://packages.python.org/django-markdown-2/
+.. _Markitup: http://markitup.jaysalvat.com/
+.. _github: https://github.com/been-there-done-that/django_markdown
+.. _Deesh: https://github.com/been-there-done-that
