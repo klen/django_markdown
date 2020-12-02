@@ -2,16 +2,21 @@ language: python
 
 python:
 - "3.6"
-- "3.7"
-- "3.8"
-- "3.9"
+
+
+env:
+    - DJANGO_VERSION=1.8.0
+    - DJANGO_VERSION=2.2.6
+    - DJANGO_VERSION=3.0.0
 
 branches:
     only:
     - master
     - develop
 
-install: pip install --quiet tox
+install:
+    - pip install --quiet tox
+    - pip install -q Django==$DJANGO_VERSION
 
 script: tox
 
